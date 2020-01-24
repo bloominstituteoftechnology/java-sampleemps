@@ -14,60 +14,7 @@ The table layouts are as follows:
 
 ![Image of Database Layout](sampleemps-db.png)
 
-Using the provided seed data, the given endpoint will product the stated output. Exand each endpoint to see it correct output.
+Two different applications exist
 
-<details>
-<summary>http://localhost:2019/employees/employees</summary>
-
-```JSON
-[
-    {
-        "employeeid": 1,
-        "name": "CINNAMON",
-        "emails": [
-            {
-                "emailid": 1,
-                "email": "hops@local.com"
-            },
-            {
-                "emailid": 2,
-                "email": "bunny@hoppin.local"
-            }
-        ],
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            },
-            {
-                "jobtitleid": 2,
-                "title": "Wizard"
-            }
-        ]
-    },
-    {
-        "employeeid": 2,
-        "name": "BARNBARN",
-        "emails": [
-            {
-                "emailid": 3,
-                "email": "barnbarn@local.com"
-            }
-        ],
-        "jobtitles": [
-            {
-                "jobtitleid": 2,
-                "title": "Wizard"
-            }
-        ]
-    },
-    {
-        "employeeid": 3,
-        "name": "JOHN",
-        "emails": [],
-        "jobtitles": []
-    }
-]
-```
-
-</details>
+- sampleemps_read - Includes only reading data
+- sampleemps_delete_save_update - Finishes the CRUD application by adding Creating, Updating, and Deleting
