@@ -7,4 +7,8 @@ import java.util.List;
 public interface EmployeeService
 {
     List<Employee> findAllEmployees();
+
+    List<Employee> findEmployeeNameContaining(String subname);
+
+    List<Employee> findEmployeeEmailContaining(String subemail);
 }

@@ -71,3 +71,87 @@ Using the provided seed data, the given endpoint will product the stated output.
 ```
 
 </details>
+
+<details>
+<summary>http://localhost:2019/employees/employeename/mon</summary>
+
+```JSON
+[
+    {
+        "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            },
+            {
+                "jobtitleid": 2,
+                "title": "Wizard"
+            }
+        ],
+        "employeeid": 1,
+        "name": "CINNAMON",
+        "emails": [
+            {
+                "emailid": 1,
+                "email": "hops@local.com"
+            },
+            {
+                "emailid": 2,
+                "email": "bunny@hoppin.local"
+            }
+        ]
+    }
+]
+```
+
+</details>
+
+<details>
+<summary>http://localhost:2019/employees/employeeemail/com</summary>
+
+```JSON
+[
+    {
+        "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            },
+            {
+                "jobtitleid": 2,
+                "title": "Wizard"
+            }
+        ],
+        "employeeid": 1,
+        "name": "CINNAMON",
+        "emails": [
+            {
+                "emailid": 1,
+                "email": "hops@local.com"
+            },
+            {
+                "emailid": 2,
+                "email": "bunny@hoppin.local"
+            }
+        ]
+    },
+    {
+        "jobtitles": [
+            {
+                "jobtitleid": 2,
+                "title": "Wizard"
+            }
+        ],
+        "employeeid": 2,
+        "name": "BARNBARN",
+        "emails": [
+            {
+                "emailid": 3,
+                "email": "barnbarn@local.com"
+            }
+        ]
+    }
+]
+```
+
+</details>

@@ -11,18 +11,6 @@ import java.util.List;
 public class Employee
 {
 
-    @Id // The primary key
-    @GeneratedValue(strategy = GenerationType.AUTO) // We will let the database decide how to generate it
-    private long employeeid; // long so we can have many rows
-
-    private String name;
-
-    @OneToMany(mappedBy = "employee",
-            cascade = CascadeType.ALL, // when adding, reading, updating, and delete, the operations should affect the emails table as well)
-            orphanRemoval = true) // if we find a email that has a reference to an employee that does not exist, delete that email record
-    @JsonIgnoreProperties("employee")
-    private List<Email> emails = new ArrayList<>();
-
     @ManyToMany()
     /*
      * Note: JoinTable is the name of a table that will get created in the database combining the two primary keys making up this relationship
@@ -30,10 +18,24 @@ public class Employee
      *       inverseJoinColumns is the primary key of the other table in the relationship
      */
     @JoinTable(name = "employeetitles",
-            joinColumns = @JoinColumn(name = "employeeid"),
-            inverseJoinColumns = @JoinColumn(name = "jobtitleid"))
+        joinColumns = @JoinColumn(name = "employeeid"),
+        inverseJoinColumns = @JoinColumn(name = "jobtitleid"))
     @JsonIgnoreProperties("employees")
     List<JobTitle> jobtitles = new ArrayList<>();
+
+    @Id // The primary key
+    @GeneratedValue(strategy = GenerationType.AUTO) // We will let the database decide how to generate it
+    private long employeeid; // long so we can have many rows
+
+    private String name;
+
+    @OneToMany(mappedBy = "employee",
+        cascade = CascadeType.ALL,
+        // when adding, reading, updating, and delete, the operations should affect the emails table as well)
+        orphanRemoval = true)
+    // if we find a email that has a reference to an employee that does not exist, delete that email record
+    @JsonIgnoreProperties("employee")
+    private List<Email> emails = new ArrayList<>();
 
     public Employee()
     {
