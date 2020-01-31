@@ -155,3 +155,112 @@ Using the provided seed data, the given endpoint will product the stated output.
 ```
 
 </details>
+
+---
+
+<details>
+<summary>POST http://localhost:2019/employees/employee</summary>
+
+Body
+
+```JSON
+{
+    "jobtitles": [
+        {
+            "jobtitleid": 2,
+            "title": "Wizard"
+        }
+    ],
+    "name": "Mojo",
+    "salary": 100000.00,
+    "emails": [
+        {
+            "email": "mojo@local.com"
+        },
+        {
+            "email": "corgi@home.local"
+        }
+    ]
+}
+```
+
+Output
+
+```Text
+No Body
+
+Location Header: http://localhost:2019/employees/employee/15
+Status 201 Created
+```
+
+</details>
+
+<details>
+<summary>PUT http://localhost:2019/employees/employee/15</summary>
+
+Body
+
+```JSON
+{
+    "jobtitles": [
+        {
+            "jobtitleid": 1
+        },
+        {
+            "jobtitleid": 2
+        }
+
+    ],
+    "name": "Mojo",
+    "salary": 80000.00,
+    "emails": [
+        {
+            "email": "corgie@local.com"
+        }
+    ]
+}
+```
+
+Output
+
+```Text
+No Body
+
+Status Ok
+```
+
+</details>
+
+<details>
+<summary>PATCH http://localhost:2019/employees/employee/15</summary>
+
+Body
+
+```JSON
+
+```
+
+Output
+
+```Text
+
+```
+
+</details>
+
+<details>
+<summary>DELETE http://localhost:2019/employees/employee/15</summary>
+
+Body
+
+```JSON
+
+```
+
+Output
+
+```Text
+
+```
+
+</details>

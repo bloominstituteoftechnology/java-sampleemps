@@ -11,4 +11,10 @@ public interface EmployeeService
     List<Employee> findEmployeeNameContaining(String subname);
 
     List<Employee> findEmployeeEmailContaining(String subemail);
+
+    Employee save(Employee employee);
+
+    Employee update(Employee employee, long employeeid);
+
+    void delete(long employeeid);
 }
