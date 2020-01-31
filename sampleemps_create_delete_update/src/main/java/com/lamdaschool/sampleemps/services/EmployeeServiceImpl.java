@@ -82,7 +82,8 @@ public class EmployeeServiceImpl
             newEmail.setEmail(e.getEmail());
             newEmail.setEmployee(newEmployee);
 
-            newEmployee.getEmails().add(newEmail);
+            newEmployee.getEmails()
+                .add(newEmail);
         }
 
         return employeerepos.save(newEmployee);
@@ -107,7 +108,8 @@ public class EmployeeServiceImpl
             currentEmployee.setSalary(employee.getSalary());
         }
 
-        if (employee.getJobtitles().size() > 0)
+        if (employee.getJobtitles()
+            .size() > 0)
         {
             for (JobTitle jt : employee.getJobtitles())
             {
@@ -118,7 +120,8 @@ public class EmployeeServiceImpl
             }
         }
 
-        if (employee.getEmails().size() > 0)
+        if (employee.getEmails()
+            .size() > 0)
         {
             for (Email e : employee.getEmails())
             {
@@ -126,7 +129,8 @@ public class EmployeeServiceImpl
                 newEmail.setEmail(e.getEmail());
                 newEmail.setEmployee(currentEmployee);
 
-                currentEmployee.getEmails().add(newEmail);
+                currentEmployee.getEmails()
+                    .add(newEmail);
             }
         }
 

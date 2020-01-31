@@ -14,7 +14,9 @@ public interface EmployeeService
 
     Employee save(Employee employee);
 
-    Employee update(Employee employee, long employeeid);
+    Employee update(
+        Employee employee,
+        long employeeid);
 
     void delete(long employeeid);
 }

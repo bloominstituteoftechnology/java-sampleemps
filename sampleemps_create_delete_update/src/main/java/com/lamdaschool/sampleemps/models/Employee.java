@@ -3,7 +3,6 @@ package com.lamdaschool.sampleemps.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,8 +18,6 @@ public class Employee
     @Transient
     public boolean hasvalueforsalary = false;
 
-    private double salary;
-
     @ManyToMany()
     /*
      * Note: JoinTable is the name of a table that will get created in the database combining the two primary keys making up this relationship
@@ -33,11 +30,14 @@ public class Employee
     @JsonIgnoreProperties("employees")
     List<JobTitle> jobtitles = new ArrayList<>();
 
+    private double salary;
+
     @Id // The primary key
     @GeneratedValue(strategy = GenerationType.AUTO) // We will let the database decide how to generate it
     private long employeeid; // long so we can have many rows
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false,
+        unique = true)
     private String name;
 
     @OneToMany(mappedBy = "employee",
@@ -107,12 +107,14 @@ public class Employee
     public void addJobTitle(JobTitle jt)
     {
         jobtitles.add(jt);
-        jt.getEmployees().add(this);
+        jt.getEmployees()
+            .add(this);
     }
 
     public void removeJobTitle(JobTitle jt)
     {
         jobtitles.remove(jt);
-        jt.getEmployees().remove(this);
+        jt.getEmployees()
+            .remove(this);
     }
 }
