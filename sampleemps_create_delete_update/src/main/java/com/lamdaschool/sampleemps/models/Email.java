@@ -25,6 +25,12 @@ public class Email
         // the default constructor is required by the JPA
     }
 
+    public Email(String email, Employee employee)
+    {
+        this.email = email;
+        this.employee = employee;
+    }
+
     public long getEmailid()
     {
         return emailid;
