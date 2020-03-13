@@ -66,7 +66,7 @@ public class SeedData implements CommandLineRunner
 
         // this section gets a unique list of names
         Set<String> empNamesSet = new HashSet<>();
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 25; i++)
         {
             empNamesSet.add(nameFaker.name().fullName());
         }
@@ -77,7 +77,7 @@ public class SeedData implements CommandLineRunner
             employee.setName(empName); // set the name
             employee.setSalary(50000.00 + (100000.00 * random.nextDouble())); // randomly generate salary from 50000 to 150000
 
-            int randomInt = random.nextInt(10); // random number of emails from 0 - 9
+            int randomInt = random.nextInt(3); // random number of emails from 0 - 2
             for (int j = 0; j < randomInt; j++)
             {
                 employee.getEmails()
