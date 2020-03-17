@@ -14,7 +14,7 @@ The table layouts are as follows:
 
 ![Image of Database Layout](../sampleemps-db.png)
 
-Using the provided seed data, the given endpoint will product the stated output. Expand each endpoint to see it correct output.
+Using the provided seed data, the given endpoint will product the stated output. Expand each endpoint to see it correct output. Due to the random nature of using Javafaker, your actual output will probably vary!!!
 
 <details>
 <summary>http://localhost:2019/employees/employees</summary>
@@ -22,6 +22,9 @@ Using the provided seed data, the given endpoint will product the stated output.
 ```JSON
 [
     {
+        "employeeid": 3,
+        "name": "CINNAMON",
+        "salary": 80000.0,
         "jobtitles": [
             {
                 "jobtitleid": 1,
@@ -32,9 +35,6 @@ Using the provided seed data, the given endpoint will product the stated output.
                 "title": "Wizard"
             }
         ],
-        "salary": 80000.0,
-        "employeeid": 3,
-        "name": "CINNAMON",
         "emails": [
             {
                 "emailid": 4,
@@ -47,15 +47,15 @@ Using the provided seed data, the given endpoint will product the stated output.
         ]
     },
     {
+        "employeeid": 6,
+        "name": "BARNBARN",
+        "salary": 80000.0,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 80000.0,
-        "employeeid": 6,
-        "name": "BARNBARN",
         "emails": [
             {
                 "emailid": 7,
@@ -64,441 +64,435 @@ Using the provided seed data, the given endpoint will product the stated output.
         ]
     },
     {
-        "jobtitles": [],
-        "salary": 75000.0,
         "employeeid": 8,
         "name": "JOHN",
+        "salary": 75000.0,
+        "jobtitles": [],
         "emails": []
     },
     {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 119128.14752680826,
         "employeeid": 9,
-        "name": "Hollis Sawayn III",
-        "emails": []
-    },
-    {
+        "name": "Donte Hilll",
+        "salary": 57979.065072965044,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 140378.73096999162,
-        "employeeid": 10,
-        "name": "Leonardo Kovacek",
         "emails": [
             {
-                "emailid": 11,
-                "email": "harris.prosacco@gmail.com"
-            },
+                "emailid": 10,
+                "email": "lavonia.kertzmann@gmail.com"
+            }
+        ]
+    },
+    {
+        "employeeid": 11,
+        "name": "Orville Gerhold",
+        "salary": 111917.77352178165,
+        "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            }
+        ],
+        "emails": [
             {
                 "emailid": 12,
-                "email": "everette.kshlerin@yahoo.com"
-            }
-        ]
-    },
-    {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 143082.31688713594,
-        "employeeid": 13,
-        "name": "Eva Hessel DVM",
-        "emails": [
-            {
-                "emailid": 14,
-                "email": "julieta.bogisich@yahoo.com"
+                "email": "victor.bechtelar@yahoo.com"
             },
             {
-                "emailid": 15,
-                "email": "chauncey.predovic@hotmail.com"
+                "emailid": 13,
+                "email": "venice.bartoletti@hotmail.com"
             }
         ]
     },
     {
+        "employeeid": 14,
+        "name": "Dwayne Wehner III",
+        "salary": 137332.1995000462,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 100682.15571583505,
+        "emails": [
+            {
+                "emailid": 15,
+                "email": "royce.gorczany@gmail.com"
+            }
+        ]
+    },
+    {
         "employeeid": 16,
-        "name": "Christopher Boyer V",
+        "name": "Debbie McGlynn",
+        "salary": 97201.81880242104,
+        "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            }
+        ],
+        "emails": [
+            {
+                "emailid": 17,
+                "email": "nilda.daniel@yahoo.com"
+            },
+            {
+                "emailid": 18,
+                "email": "jayson.parisian@yahoo.com"
+            }
+        ]
+    },
+    {
+        "employeeid": 19,
+        "name": "Ms. Horace Greenholt",
+        "salary": 115278.55136961937,
+        "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            }
+        ],
         "emails": []
     },
     {
+        "employeeid": 20,
+        "name": "Hortencia Parker",
+        "salary": 91600.46382982255,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 122798.93659847471,
-        "employeeid": 17,
-        "name": "Ok Schoen",
-        "emails": [
-            {
-                "emailid": 18,
-                "email": "valentin.rodriguez@gmail.com"
-            }
-        ]
+        "emails": []
     },
     {
+        "employeeid": 21,
+        "name": "Vallie Bosco",
+        "salary": 117934.83083208356,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 92286.141376001,
-        "employeeid": 19,
-        "name": "Martin Nikolaus",
         "emails": [
             {
-                "emailid": 20,
-                "email": "columbus.lakin@yahoo.com"
+                "emailid": 22,
+                "email": "gilma.bechtelar@hotmail.com"
             },
             {
-                "emailid": 21,
-                "email": "percy.bednar@gmail.com"
-            }
-        ]
-    },
-    {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 56400.06589577136,
-        "employeeid": 22,
-        "name": "Christie Huels",
-        "emails": [
-            {
                 "emailid": 23,
-                "email": "roosevelt.murphy@gmail.com"
+                "email": "vertie.quitzon@gmail.com"
             }
         ]
     },
     {
+        "employeeid": 24,
+        "name": "Marina Parisian",
+        "salary": 70104.86865072964,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 116045.62475307791,
-        "employeeid": 24,
-        "name": "Margarette Jones",
         "emails": [
             {
                 "emailid": 25,
-                "email": "jere.west@yahoo.com"
+                "email": "liza.beahan@hotmail.com"
             },
             {
                 "emailid": 26,
-                "email": "jacinto.kilback@yahoo.com"
+                "email": "carroll.quigley@yahoo.com"
             }
         ]
     },
     {
+        "employeeid": 27,
+        "name": "Rima Larson",
+        "salary": 65961.8528770834,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 119833.32170883815,
-        "employeeid": 27,
-        "name": "Miss Lisa Heller",
         "emails": [
             {
                 "emailid": 28,
-                "email": "errol.orn@hotmail.com"
-            },
-            {
-                "emailid": 29,
-                "email": "buck.hessel@gmail.com"
+                "email": "kimiko.lemke@hotmail.com"
             }
         ]
     },
     {
+        "employeeid": 29,
+        "name": "Rodney Lowe",
+        "salary": 149850.66273798535,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 102141.75782274158,
-        "employeeid": 30,
-        "name": "Dr. Wilford Kris",
         "emails": [
             {
-                "emailid": 31,
-                "email": "peggy.bergstrom@yahoo.com"
-            },
+                "emailid": 30,
+                "email": "emelda.ledner@hotmail.com"
+            }
+        ]
+    },
+    {
+        "employeeid": 31,
+        "name": "Manuel Satterfield",
+        "salary": 58489.21432691639,
+        "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            }
+        ],
+        "emails": [
             {
                 "emailid": 32,
-                "email": "rich.conn@gmail.com"
+                "email": "jazmine.schowalter@yahoo.com"
+            },
+            {
+                "emailid": 33,
+                "email": "everette.little@hotmail.com"
             }
         ]
     },
     {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 67305.56777049304,
-        "employeeid": 33,
-        "name": "Desmond Willms",
-        "emails": []
-    },
-    {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 74469.53704082486,
         "employeeid": 34,
-        "name": "Lonny Wuckert",
-        "emails": [
-            {
-                "emailid": 35,
-                "email": "cristine.monahan@hotmail.com"
-            },
-            {
-                "emailid": 36,
-                "email": "genaro.kuphal@gmail.com"
-            }
-        ]
-    },
-    {
+        "name": "Linwood Runolfsdottir",
+        "salary": 92237.87852876788,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 75852.84114005679,
-        "employeeid": 37,
-        "name": "Marisa Jacobson DVM",
         "emails": []
     },
     {
+        "employeeid": 35,
+        "name": "Dr. Neta Yundt",
+        "salary": 141671.03892213776,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 135345.84504424315,
-        "employeeid": 38,
-        "name": "Isabelle Bashirian",
+        "emails": []
+    },
+    {
+        "employeeid": 36,
+        "name": "Paul Legros",
+        "salary": 138444.24324724264,
+        "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            }
+        ],
         "emails": [
             {
-                "emailid": 39,
-                "email": "donald.gleason@hotmail.com"
+                "emailid": 37,
+                "email": "kip.connelly@gmail.com"
+            },
+            {
+                "emailid": 38,
+                "email": "quinn.braun@hotmail.com"
             }
         ]
     },
     {
+        "employeeid": 39,
+        "name": "Rod Volkman",
+        "salary": 126232.6076639922,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 60449.50301565214,
-        "employeeid": 40,
-        "name": "Rex Konopelski",
         "emails": [
             {
-                "emailid": 41,
-                "email": "alejandro.balistreri@gmail.com"
-            },
+                "emailid": 40,
+                "email": "ruthie.bogisich@yahoo.com"
+            }
+        ]
+    },
+    {
+        "employeeid": 41,
+        "name": "Giuseppe Rice",
+        "salary": 120020.46386514937,
+        "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            }
+        ],
+        "emails": [
             {
                 "emailid": 42,
-                "email": "tracy.boyle@hotmail.com"
+                "email": "domingo.rosenbaum@yahoo.com"
             }
         ]
     },
     {
+        "employeeid": 43,
+        "name": "Eloy Kutch",
+        "salary": 130132.23591651948,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 133526.2645226284,
-        "employeeid": 43,
-        "name": "Ulysses Kilback",
         "emails": [
             {
                 "emailid": 44,
-                "email": "randy.wilkinson@yahoo.com"
-            },
-            {
-                "emailid": 45,
-                "email": "foster.orn@yahoo.com"
+                "email": "colby.macgyver@gmail.com"
             }
         ]
     },
     {
+        "employeeid": 45,
+        "name": "Rodolfo Johnston",
+        "salary": 63800.38363702623,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 131178.41328604738,
-        "employeeid": 46,
-        "name": "Ruthanne Kuhn",
         "emails": []
     },
     {
+        "employeeid": 46,
+        "name": "Trula Schultz",
+        "salary": 63685.62932203562,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 73812.24720156766,
+        "emails": []
+    },
+    {
         "employeeid": 47,
-        "name": "Dane Morissette MD",
+        "name": "Hortense Goodwin",
+        "salary": 125217.97290081353,
+        "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            }
+        ],
         "emails": [
             {
                 "emailid": 48,
-                "email": "renato.wintheiser@gmail.com"
+                "email": "ron.bogisich@hotmail.com"
             },
             {
                 "emailid": 49,
-                "email": "spencer.rogahn@hotmail.com"
+                "email": "korey.white@yahoo.com"
             }
         ]
     },
     {
+        "employeeid": 50,
+        "name": "Tari Romaguera",
+        "salary": 127166.00968556589,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 59129.024646493315,
-        "employeeid": 50,
-        "name": "Eldon Moore",
         "emails": [
             {
                 "emailid": 51,
-                "email": "kendra.will@hotmail.com"
-            },
-            {
-                "emailid": 52,
-                "email": "bernardina.hane@gmail.com"
+                "email": "kyle.ohara@gmail.com"
             }
         ]
     },
     {
+        "employeeid": 52,
+        "name": "Mr. Orval Prosacco",
+        "salary": 107675.93053377056,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 136970.76681566585,
-        "employeeid": 53,
-        "name": "Lacy Blanda",
-        "emails": []
+        "emails": [
+            {
+                "emailid": 53,
+                "email": "demarcus.kiehn@yahoo.com"
+            },
+            {
+                "emailid": 54,
+                "email": "frances.rolfson@hotmail.com"
+            }
+        ]
     },
     {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 81085.44694327582,
-        "employeeid": 54,
-        "name": "Odis D'Amore",
-        "emails": []
-    },
-    {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 94402.04426711016,
         "employeeid": 55,
-        "name": "Kiyoko Bins",
-        "emails": []
-    },
-    {
+        "name": "Carl Konopelski",
+        "salary": 89897.81505103297,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 79680.58687512022,
+        "emails": []
+    },
+    {
         "employeeid": 56,
-        "name": "Jinny Wehner MD",
+        "name": "Levi Baumbach III",
+        "salary": 149025.67323776847,
+        "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            }
+        ],
         "emails": [
             {
                 "emailid": 57,
-                "email": "dale.ward@hotmail.com"
-            },
-            {
-                "emailid": 58,
-                "email": "lyle.roberts@yahoo.com"
+                "email": "jarod.stokes@hotmail.com"
             }
         ]
     },
     {
+        "employeeid": 58,
+        "name": "Devin Koepp III",
+        "salary": 59413.499039909075,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 51667.49904641672,
-        "employeeid": 59,
-        "name": "Dagmar Flatley II",
-        "emails": []
-    },
-    {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 82974.93750150778,
-        "employeeid": 60,
-        "name": "Omer Wolff",
         "emails": [
             {
-                "emailid": 61,
-                "email": "ute.renner@hotmail.com"
+                "emailid": 59,
+                "email": "esperanza.cassin@hotmail.com"
             },
             {
-                "emailid": 62,
-                "email": "tawanda.kertzmann@yahoo.com"
+                "emailid": 60,
+                "email": "matt.fahey@gmail.com"
             }
         ]
     }
@@ -513,6 +507,9 @@ Using the provided seed data, the given endpoint will product the stated output.
 ```JSON
 [
     {
+        "employeeid": 3,
+        "name": "CINNAMON",
+        "salary": 80000.0,
         "jobtitles": [
             {
                 "jobtitleid": 1,
@@ -523,9 +520,6 @@ Using the provided seed data, the given endpoint will product the stated output.
                 "title": "Wizard"
             }
         ],
-        "salary": 80000.0,
-        "employeeid": 3,
-        "name": "CINNAMON",
         "emails": [
             {
                 "emailid": 4,
@@ -536,18 +530,6 @@ Using the provided seed data, the given endpoint will product the stated output.
                 "email": "bunny@hoppin.local"
             }
         ]
-    },
-    {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 67305.56777049304,
-        "employeeid": 33,
-        "name": "Desmond Willms",
-        "emails": []
     }
 ]
 ```
@@ -560,6 +542,9 @@ Using the provided seed data, the given endpoint will product the stated output.
 ```JSON
 [
     {
+        "employeeid": 3,
+        "name": "CINNAMON",
+        "salary": 80000.0,
         "jobtitles": [
             {
                 "jobtitleid": 1,
@@ -570,9 +555,6 @@ Using the provided seed data, the given endpoint will product the stated output.
                 "title": "Wizard"
             }
         ],
-        "salary": 80000.0,
-        "employeeid": 3,
-        "name": "CINNAMON",
         "emails": [
             {
                 "emailid": 4,
@@ -585,15 +567,15 @@ Using the provided seed data, the given endpoint will product the stated output.
         ]
     },
     {
+        "employeeid": 6,
+        "name": "BARNBARN",
+        "salary": 80000.0,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 80000.0,
-        "employeeid": 6,
-        "name": "BARNBARN",
         "emails": [
             {
                 "emailid": 7,
@@ -602,599 +584,533 @@ Using the provided seed data, the given endpoint will product the stated output.
         ]
     },
     {
+        "employeeid": 9,
+        "name": "Donte Hilll",
+        "salary": 57979.065072965044,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 140378.73096999162,
-        "employeeid": 10,
-        "name": "Leonardo Kovacek",
         "emails": [
             {
-                "emailid": 11,
-                "email": "harris.prosacco@gmail.com"
-            },
+                "emailid": 10,
+                "email": "lavonia.kertzmann@gmail.com"
+            }
+        ]
+    },
+    {
+        "employeeid": 11,
+        "name": "Orville Gerhold",
+        "salary": 111917.77352178165,
+        "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            }
+        ],
+        "emails": [
             {
                 "emailid": 12,
-                "email": "everette.kshlerin@yahoo.com"
+                "email": "victor.bechtelar@yahoo.com"
+            },
+            {
+                "emailid": 13,
+                "email": "venice.bartoletti@hotmail.com"
             }
         ]
     },
     {
+        "employeeid": 11,
+        "name": "Orville Gerhold",
+        "salary": 111917.77352178165,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 140378.73096999162,
-        "employeeid": 10,
-        "name": "Leonardo Kovacek",
         "emails": [
-            {
-                "emailid": 11,
-                "email": "harris.prosacco@gmail.com"
-            },
             {
                 "emailid": 12,
-                "email": "everette.kshlerin@yahoo.com"
-            }
-        ]
-    },
-    {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 143082.31688713594,
-        "employeeid": 13,
-        "name": "Eva Hessel DVM",
-        "emails": [
-            {
-                "emailid": 14,
-                "email": "julieta.bogisich@yahoo.com"
+                "email": "victor.bechtelar@yahoo.com"
             },
             {
-                "emailid": 15,
-                "email": "chauncey.predovic@hotmail.com"
+                "emailid": 13,
+                "email": "venice.bartoletti@hotmail.com"
             }
         ]
     },
     {
+        "employeeid": 14,
+        "name": "Dwayne Wehner III",
+        "salary": 137332.1995000462,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 143082.31688713594,
-        "employeeid": 13,
-        "name": "Eva Hessel DVM",
         "emails": [
             {
-                "emailid": 14,
-                "email": "julieta.bogisich@yahoo.com"
+                "emailid": 15,
+                "email": "royce.gorczany@gmail.com"
+            }
+        ]
+    },
+    {
+        "employeeid": 16,
+        "name": "Debbie McGlynn",
+        "salary": 97201.81880242104,
+        "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            }
+        ],
+        "emails": [
+            {
+                "emailid": 17,
+                "email": "nilda.daniel@yahoo.com"
             },
-            {
-                "emailid": 15,
-                "email": "chauncey.predovic@hotmail.com"
-            }
-        ]
-    },
-    {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 122798.93659847471,
-        "employeeid": 17,
-        "name": "Ok Schoen",
-        "emails": [
             {
                 "emailid": 18,
-                "email": "valentin.rodriguez@gmail.com"
+                "email": "jayson.parisian@yahoo.com"
             }
         ]
     },
     {
+        "employeeid": 16,
+        "name": "Debbie McGlynn",
+        "salary": 97201.81880242104,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 92286.141376001,
-        "employeeid": 19,
-        "name": "Martin Nikolaus",
         "emails": [
             {
-                "emailid": 20,
-                "email": "columbus.lakin@yahoo.com"
+                "emailid": 17,
+                "email": "nilda.daniel@yahoo.com"
             },
             {
-                "emailid": 21,
-                "email": "percy.bednar@gmail.com"
+                "emailid": 18,
+                "email": "jayson.parisian@yahoo.com"
             }
         ]
     },
     {
+        "employeeid": 21,
+        "name": "Vallie Bosco",
+        "salary": 117934.83083208356,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 92286.141376001,
-        "employeeid": 19,
-        "name": "Martin Nikolaus",
         "emails": [
             {
-                "emailid": 20,
-                "email": "columbus.lakin@yahoo.com"
+                "emailid": 22,
+                "email": "gilma.bechtelar@hotmail.com"
             },
-            {
-                "emailid": 21,
-                "email": "percy.bednar@gmail.com"
-            }
-        ]
-    },
-    {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 56400.06589577136,
-        "employeeid": 22,
-        "name": "Christie Huels",
-        "emails": [
             {
                 "emailid": 23,
-                "email": "roosevelt.murphy@gmail.com"
+                "email": "vertie.quitzon@gmail.com"
             }
         ]
     },
     {
+        "employeeid": 21,
+        "name": "Vallie Bosco",
+        "salary": 117934.83083208356,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 116045.62475307791,
+        "emails": [
+            {
+                "emailid": 22,
+                "email": "gilma.bechtelar@hotmail.com"
+            },
+            {
+                "emailid": 23,
+                "email": "vertie.quitzon@gmail.com"
+            }
+        ]
+    },
+    {
         "employeeid": 24,
-        "name": "Margarette Jones",
+        "name": "Marina Parisian",
+        "salary": 70104.86865072964,
+        "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            }
+        ],
         "emails": [
             {
                 "emailid": 25,
-                "email": "jere.west@yahoo.com"
+                "email": "liza.beahan@hotmail.com"
             },
             {
                 "emailid": 26,
-                "email": "jacinto.kilback@yahoo.com"
+                "email": "carroll.quigley@yahoo.com"
             }
         ]
     },
     {
+        "employeeid": 24,
+        "name": "Marina Parisian",
+        "salary": 70104.86865072964,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 116045.62475307791,
-        "employeeid": 24,
-        "name": "Margarette Jones",
         "emails": [
             {
                 "emailid": 25,
-                "email": "jere.west@yahoo.com"
+                "email": "liza.beahan@hotmail.com"
             },
             {
                 "emailid": 26,
-                "email": "jacinto.kilback@yahoo.com"
+                "email": "carroll.quigley@yahoo.com"
             }
         ]
     },
     {
+        "employeeid": 27,
+        "name": "Rima Larson",
+        "salary": 65961.8528770834,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 119833.32170883815,
-        "employeeid": 27,
-        "name": "Miss Lisa Heller",
         "emails": [
             {
                 "emailid": 28,
-                "email": "errol.orn@hotmail.com"
-            },
-            {
-                "emailid": 29,
-                "email": "buck.hessel@gmail.com"
+                "email": "kimiko.lemke@hotmail.com"
             }
         ]
     },
     {
+        "employeeid": 29,
+        "name": "Rodney Lowe",
+        "salary": 149850.66273798535,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 119833.32170883815,
-        "employeeid": 27,
-        "name": "Miss Lisa Heller",
         "emails": [
             {
-                "emailid": 28,
-                "email": "errol.orn@hotmail.com"
-            },
-            {
-                "emailid": 29,
-                "email": "buck.hessel@gmail.com"
+                "emailid": 30,
+                "email": "emelda.ledner@hotmail.com"
             }
         ]
     },
     {
+        "employeeid": 31,
+        "name": "Manuel Satterfield",
+        "salary": 58489.21432691639,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 102141.75782274158,
-        "employeeid": 30,
-        "name": "Dr. Wilford Kris",
         "emails": [
-            {
-                "emailid": 31,
-                "email": "peggy.bergstrom@yahoo.com"
-            },
             {
                 "emailid": 32,
-                "email": "rich.conn@gmail.com"
+                "email": "jazmine.schowalter@yahoo.com"
+            },
+            {
+                "emailid": 33,
+                "email": "everette.little@hotmail.com"
             }
         ]
     },
     {
+        "employeeid": 31,
+        "name": "Manuel Satterfield",
+        "salary": 58489.21432691639,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 102141.75782274158,
-        "employeeid": 30,
-        "name": "Dr. Wilford Kris",
         "emails": [
-            {
-                "emailid": 31,
-                "email": "peggy.bergstrom@yahoo.com"
-            },
             {
                 "emailid": 32,
-                "email": "rich.conn@gmail.com"
-            }
-        ]
-    },
-    {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 74469.53704082486,
-        "employeeid": 34,
-        "name": "Lonny Wuckert",
-        "emails": [
-            {
-                "emailid": 35,
-                "email": "cristine.monahan@hotmail.com"
+                "email": "jazmine.schowalter@yahoo.com"
             },
             {
-                "emailid": 36,
-                "email": "genaro.kuphal@gmail.com"
+                "emailid": 33,
+                "email": "everette.little@hotmail.com"
             }
         ]
     },
     {
+        "employeeid": 36,
+        "name": "Paul Legros",
+        "salary": 138444.24324724264,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 74469.53704082486,
-        "employeeid": 34,
-        "name": "Lonny Wuckert",
         "emails": [
             {
-                "emailid": 35,
-                "email": "cristine.monahan@hotmail.com"
+                "emailid": 37,
+                "email": "kip.connelly@gmail.com"
             },
             {
-                "emailid": 36,
-                "email": "genaro.kuphal@gmail.com"
+                "emailid": 38,
+                "email": "quinn.braun@hotmail.com"
             }
         ]
     },
     {
+        "employeeid": 36,
+        "name": "Paul Legros",
+        "salary": 138444.24324724264,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 135345.84504424315,
-        "employeeid": 38,
-        "name": "Isabelle Bashirian",
         "emails": [
             {
-                "emailid": 39,
-                "email": "donald.gleason@hotmail.com"
-            }
-        ]
-    },
-    {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 60449.50301565214,
-        "employeeid": 40,
-        "name": "Rex Konopelski",
-        "emails": [
-            {
-                "emailid": 41,
-                "email": "alejandro.balistreri@gmail.com"
+                "emailid": 37,
+                "email": "kip.connelly@gmail.com"
             },
+            {
+                "emailid": 38,
+                "email": "quinn.braun@hotmail.com"
+            }
+        ]
+    },
+    {
+        "employeeid": 39,
+        "name": "Rod Volkman",
+        "salary": 126232.6076639922,
+        "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            }
+        ],
+        "emails": [
+            {
+                "emailid": 40,
+                "email": "ruthie.bogisich@yahoo.com"
+            }
+        ]
+    },
+    {
+        "employeeid": 41,
+        "name": "Giuseppe Rice",
+        "salary": 120020.46386514937,
+        "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            }
+        ],
+        "emails": [
             {
                 "emailid": 42,
-                "email": "tracy.boyle@hotmail.com"
+                "email": "domingo.rosenbaum@yahoo.com"
             }
         ]
     },
     {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 60449.50301565214,
-        "employeeid": 40,
-        "name": "Rex Konopelski",
-        "emails": [
-            {
-                "emailid": 41,
-                "email": "alejandro.balistreri@gmail.com"
-            },
-            {
-                "emailid": 42,
-                "email": "tracy.boyle@hotmail.com"
-            }
-        ]
-    },
-    {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 133526.2645226284,
         "employeeid": 43,
-        "name": "Ulysses Kilback",
+        "name": "Eloy Kutch",
+        "salary": 130132.23591651948,
+        "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            }
+        ],
         "emails": [
             {
                 "emailid": 44,
-                "email": "randy.wilkinson@yahoo.com"
-            },
-            {
-                "emailid": 45,
-                "email": "foster.orn@yahoo.com"
+                "email": "colby.macgyver@gmail.com"
             }
         ]
     },
     {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 133526.2645226284,
-        "employeeid": 43,
-        "name": "Ulysses Kilback",
-        "emails": [
-            {
-                "emailid": 44,
-                "email": "randy.wilkinson@yahoo.com"
-            },
-            {
-                "emailid": 45,
-                "email": "foster.orn@yahoo.com"
-            }
-        ]
-    },
-    {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 73812.24720156766,
         "employeeid": 47,
-        "name": "Dane Morissette MD",
+        "name": "Hortense Goodwin",
+        "salary": 125217.97290081353,
+        "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            }
+        ],
         "emails": [
             {
                 "emailid": 48,
-                "email": "renato.wintheiser@gmail.com"
+                "email": "ron.bogisich@hotmail.com"
             },
             {
                 "emailid": 49,
-                "email": "spencer.rogahn@hotmail.com"
+                "email": "korey.white@yahoo.com"
             }
         ]
     },
     {
+        "employeeid": 47,
+        "name": "Hortense Goodwin",
+        "salary": 125217.97290081353,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 73812.24720156766,
-        "employeeid": 47,
-        "name": "Dane Morissette MD",
         "emails": [
             {
                 "emailid": 48,
-                "email": "renato.wintheiser@gmail.com"
+                "email": "ron.bogisich@hotmail.com"
             },
             {
                 "emailid": 49,
-                "email": "spencer.rogahn@hotmail.com"
+                "email": "korey.white@yahoo.com"
             }
         ]
     },
     {
+        "employeeid": 50,
+        "name": "Tari Romaguera",
+        "salary": 127166.00968556589,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 59129.024646493315,
-        "employeeid": 50,
-        "name": "Eldon Moore",
         "emails": [
             {
                 "emailid": 51,
-                "email": "kendra.will@hotmail.com"
-            },
-            {
-                "emailid": 52,
-                "email": "bernardina.hane@gmail.com"
+                "email": "kyle.ohara@gmail.com"
             }
         ]
     },
     {
+        "employeeid": 52,
+        "name": "Mr. Orval Prosacco",
+        "salary": 107675.93053377056,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 59129.024646493315,
-        "employeeid": 50,
-        "name": "Eldon Moore",
         "emails": [
             {
-                "emailid": 51,
-                "email": "kendra.will@hotmail.com"
+                "emailid": 53,
+                "email": "demarcus.kiehn@yahoo.com"
             },
             {
-                "emailid": 52,
-                "email": "bernardina.hane@gmail.com"
+                "emailid": 54,
+                "email": "frances.rolfson@hotmail.com"
             }
         ]
     },
     {
+        "employeeid": 52,
+        "name": "Mr. Orval Prosacco",
+        "salary": 107675.93053377056,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 79680.58687512022,
+        "emails": [
+            {
+                "emailid": 53,
+                "email": "demarcus.kiehn@yahoo.com"
+            },
+            {
+                "emailid": 54,
+                "email": "frances.rolfson@hotmail.com"
+            }
+        ]
+    },
+    {
         "employeeid": 56,
-        "name": "Jinny Wehner MD",
+        "name": "Levi Baumbach III",
+        "salary": 149025.67323776847,
+        "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            }
+        ],
         "emails": [
             {
                 "emailid": 57,
-                "email": "dale.ward@hotmail.com"
-            },
-            {
-                "emailid": 58,
-                "email": "lyle.roberts@yahoo.com"
+                "email": "jarod.stokes@hotmail.com"
             }
         ]
     },
     {
+        "employeeid": 58,
+        "name": "Devin Koepp III",
+        "salary": 59413.499039909075,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 79680.58687512022,
-        "employeeid": 56,
-        "name": "Jinny Wehner MD",
         "emails": [
             {
-                "emailid": 57,
-                "email": "dale.ward@hotmail.com"
+                "emailid": 59,
+                "email": "esperanza.cassin@hotmail.com"
             },
             {
-                "emailid": 58,
-                "email": "lyle.roberts@yahoo.com"
+                "emailid": 60,
+                "email": "matt.fahey@gmail.com"
             }
         ]
     },
     {
+        "employeeid": 58,
+        "name": "Devin Koepp III",
+        "salary": 59413.499039909075,
         "jobtitles": [
             {
                 "jobtitleid": 1,
                 "title": "Big Boss"
             }
         ],
-        "salary": 82974.93750150778,
-        "employeeid": 60,
-        "name": "Omer Wolff",
         "emails": [
             {
-                "emailid": 61,
-                "email": "ute.renner@hotmail.com"
+                "emailid": 59,
+                "email": "esperanza.cassin@hotmail.com"
             },
             {
-                "emailid": 62,
-                "email": "tawanda.kertzmann@yahoo.com"
-            }
-        ]
-    },
-    {
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "salary": 82974.93750150778,
-        "employeeid": 60,
-        "name": "Omer Wolff",
-        "emails": [
-            {
-                "emailid": 61,
-                "email": "ute.renner@hotmail.com"
-            },
-            {
-                "emailid": 62,
-                "email": "tawanda.kertzmann@yahoo.com"
+                "emailid": 60,
+                "email": "matt.fahey@gmail.com"
             }
         ]
     }
@@ -1214,8 +1130,7 @@ Body
 {
     "jobtitles": [
         {
-            "jobtitleid": 2,
-            "title": "Wizard"
+            "jobtitleid": 2
         }
     ],
     "name": "Mojo",
@@ -1236,14 +1151,14 @@ Output
 ```Text
 No Body Data
 
-Location Header: http://localhost:2019/employees/employee/63
+Location Header: http://localhost:2019/employees/employee/61
 Status 201 Created
 ```
 
 </details>
 
 <details>
-<summary>PUT http://localhost:2019/employees/employee/13</summary>
+<summary>PUT http://localhost:2019/employees/employee/11</summary>
 
 Body
 
@@ -1251,6 +1166,11 @@ Body
 {
     "name": "Corgie",
     "salary": 80000.00,
+    "jobtitles": [
+        {
+            "jobtitleid": 2
+        }
+    ],
     "emails": [
         {
             "email": "corgie@local.com"
@@ -1270,7 +1190,7 @@ Status OK
 </details>
 
 <details>
-<summary>PATCH http://localhost:2019/employees/employee/15</summary>
+<summary>PATCH http://localhost:2019/employees/employee/14</summary>
 
 Body
 
@@ -1296,7 +1216,7 @@ Status OK
 </details>
 
 <details>
-<summary>DELETE http://localhost:2019/employees/employee/13</summary>
+<summary>DELETE http://localhost:2019/employees/employee/11</summary>
 
 Output
 

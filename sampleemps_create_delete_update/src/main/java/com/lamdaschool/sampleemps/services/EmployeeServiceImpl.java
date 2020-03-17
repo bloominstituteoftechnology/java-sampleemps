@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,26 +67,14 @@ public class EmployeeServiceImpl
         newEmployee.setName(employee.getName());
         newEmployee.setSalary(employee.getSalary());
 
-        // only add job titles for new employees. Updating employees does not work ith Job Titles.
-        // That has to be done using a different endpoint
-        if (employee.getEmployeeid() == 0)
+        newEmployee.getJobtitles()
+            .clear();
+        for (JobTitle jt : employee.getJobtitles())
         {
-            newEmployee.getJobtitles()
-                .clear();
-            for (JobTitle jt : employee.getJobtitles())
-            {
-                JobTitle newJT = jtrepos.findById(jt.getJobtitleid())
-                    .orElseThrow(() -> new EntityNotFoundException("JobTitle " + jt.getJobtitleid() + " Not Found"));
+            JobTitle newJT = jtrepos.findById(jt.getJobtitleid())
+                .orElseThrow(() -> new EntityNotFoundException("JobTitle " + jt.getJobtitleid() + " Not Found"));
 
-                newEmployee.addJobTitle(jt);
-            }
-        } else
-        {
-            if (employee.getJobtitles()
-                .size() > 0)
-            {
-                throw new EntityExistsException("Job titles are not updated through employees.");
-            }
+            newEmployee.addJobTitle(newJT);
         }
 
         newEmployee.getEmails()
@@ -127,7 +114,15 @@ public class EmployeeServiceImpl
         if (employee.getJobtitles()
             .size() > 0)
         {
-            throw new EntityExistsException("Job titles are not updated through employees.");
+            currentEmployee.getJobtitles()
+                .clear();
+            for (JobTitle jt : employee.getJobtitles())
+            {
+                JobTitle newJT = jtrepos.findById(jt.getJobtitleid())
+                    .orElseThrow(() -> new EntityNotFoundException("JobTitle " + jt.getJobtitleid() + " Not Found"));
+
+                currentEmployee.addJobTitle(newJT);
+            }
         }
 
         if (employee.getEmails()

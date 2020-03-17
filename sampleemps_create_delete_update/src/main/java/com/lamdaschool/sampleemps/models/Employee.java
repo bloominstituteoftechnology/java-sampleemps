@@ -11,12 +11,21 @@ import java.util.List;
 @JsonIgnoreProperties(value = {"hasvalueforsalary"})
 public class Employee
 {
+    @Id // The primary key
+    @GeneratedValue(strategy = GenerationType.AUTO) // We will let the database decide how to generate it
+    private long employeeid; // long so we can have many rows
+
+    @Column(nullable = false,
+        unique = true)
+    private String name;
 
     /**
      * Used to determine if the field salary has been set or is NULL.
      */
     @Transient
     public boolean hasvalueforsalary = false;
+
+    private double salary;
 
     @ManyToMany()
     /*
@@ -29,16 +38,6 @@ public class Employee
         inverseJoinColumns = @JoinColumn(name = "jobtitleid"))
     @JsonIgnoreProperties("employees")
     List<JobTitle> jobtitles = new ArrayList<>();
-
-    private double salary;
-
-    @Id // The primary key
-    @GeneratedValue(strategy = GenerationType.AUTO) // We will let the database decide how to generate it
-    private long employeeid; // long so we can have many rows
-
-    @Column(nullable = false,
-        unique = true)
-    private String name;
 
     @OneToMany(mappedBy = "employee",
         cascade = CascadeType.ALL,

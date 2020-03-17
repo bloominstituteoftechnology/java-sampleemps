@@ -42,8 +42,12 @@ public class SeedData implements CommandLineRunner
         Employee emp1 = new Employee();
         emp1.setName("CINNAMON");
         emp1.setSalary(80000.00);
-        emp1.getEmails().add(new Email("hops@local.com", emp1));
-        emp1.getEmails().add(new Email("bunny@hoppin.local", emp1));
+        emp1.getEmails()
+            .add(new Email("hops@local.com",
+                emp1));
+        emp1.getEmails()
+            .add(new Email("bunny@hoppin.local",
+                emp1));
         emp1.addJobTitle(jt1);
         emp1.addJobTitle(jt2);
         employeerepos.save(emp1);
@@ -51,7 +55,9 @@ public class SeedData implements CommandLineRunner
         Employee emp2 = new Employee();
         emp2.setName("BARNBARN");
         emp2.setSalary(80000.00);
-        emp2.getEmails().add(new Email("barnbarn@local.com", emp2));
+        emp2.getEmails()
+            .add(new Email("barnbarn@local.com",
+                emp2));
         emp2.addJobTitle(jt1);
         employeerepos.save(emp2);
 
@@ -68,7 +74,8 @@ public class SeedData implements CommandLineRunner
         Set<String> empNamesSet = new HashSet<>();
         for (int i = 0; i < 25; i++)
         {
-            empNamesSet.add(nameFaker.name().fullName());
+            empNamesSet.add(nameFaker.name()
+                .fullName());
         }
 
         for (String empName : empNamesSet)
@@ -81,7 +88,8 @@ public class SeedData implements CommandLineRunner
             for (int j = 0; j < randomInt; j++)
             {
                 employee.getEmails()
-                    .add(new Email(nameFaker.internet().emailAddress(),
+                    .add(new Email(nameFaker.internet()
+                        .emailAddress(),
                         employee));
             }
             employee.addJobTitle(jt1); // just assigning them to the first job title

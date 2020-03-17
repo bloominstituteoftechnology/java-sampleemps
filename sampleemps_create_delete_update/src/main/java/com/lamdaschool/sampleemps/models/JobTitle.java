@@ -14,6 +14,8 @@ public class JobTitle
     @GeneratedValue(strategy = GenerationType.AUTO) // We will let the database decide how to generate it
     private long jobtitleid; // long so we can have many rows
 
+    @Column(nullable = false,
+        unique = true)
     private String title;
 
     @ManyToMany(mappedBy = "jobtitles")
