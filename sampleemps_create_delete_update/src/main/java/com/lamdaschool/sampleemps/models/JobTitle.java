@@ -19,7 +19,8 @@ public class JobTitle
     private String title;
 
     @ManyToMany(mappedBy = "jobtitles")
-    @JsonIgnoreProperties("jobtitles")
+    @JsonIgnoreProperties(value = "jobtitles",
+        allowSetters = true)
     private List<Employee> employees = new ArrayList<>();
 
     public JobTitle()

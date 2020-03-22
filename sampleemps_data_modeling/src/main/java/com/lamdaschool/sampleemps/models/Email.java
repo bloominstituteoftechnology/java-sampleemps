@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "emails")
-public class Email
+public class Email extends Auditable
 {
     @Id // The primary key
     @GeneratedValue(strategy = GenerationType.AUTO) // We will let the database decide how to generate it

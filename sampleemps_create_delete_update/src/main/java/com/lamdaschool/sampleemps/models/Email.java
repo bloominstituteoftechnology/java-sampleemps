@@ -18,7 +18,8 @@ public class Email
     @ManyToOne
     @JoinColumn(name = "employeeid",
         nullable = false)
-    @JsonIgnoreProperties("emails")
+    @JsonIgnoreProperties(value = "emails",
+        allowSetters = true)
     private Employee employee;
 
     public Email()

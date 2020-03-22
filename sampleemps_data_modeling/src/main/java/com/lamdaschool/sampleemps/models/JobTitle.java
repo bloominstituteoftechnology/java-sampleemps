@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "jobtitles")
-public class JobTitle
+public class JobTitle extends Auditable
 {
     @Id // The primary key
     @GeneratedValue(strategy = GenerationType.AUTO) // We will let the database decide how to generate it

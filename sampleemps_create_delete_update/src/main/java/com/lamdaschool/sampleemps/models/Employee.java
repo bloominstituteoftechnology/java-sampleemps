@@ -36,7 +36,8 @@ public class Employee
     @JoinTable(name = "employeetitles",
         joinColumns = @JoinColumn(name = "employeeid"),
         inverseJoinColumns = @JoinColumn(name = "jobtitleid"))
-    @JsonIgnoreProperties("employees")
+    @JsonIgnoreProperties(value = "employees",
+        allowSetters = true)
     List<JobTitle> jobtitles = new ArrayList<>();
 
     @OneToMany(mappedBy = "employee",
@@ -44,7 +45,8 @@ public class Employee
         // when adding, reading, updating, and delete, the operations should affect the emails table as well)
         orphanRemoval = true)
     // if we find a email that has a reference to an employee that does not exist, delete that email record
-    @JsonIgnoreProperties("employee")
+    @JsonIgnoreProperties(value = "employee",
+        allowSetters = true)
     private List<Email> emails = new ArrayList<>();
 
     public Employee()

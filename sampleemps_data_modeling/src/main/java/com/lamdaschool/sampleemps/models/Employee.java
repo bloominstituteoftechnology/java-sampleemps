@@ -4,19 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "employees")
 @JsonIgnoreProperties(value = {"hasvalueforsalary"})
-public class Employee
+public class Employee extends Auditable
 {
-    /**
-     * Used to determine if the field salary has been set or is NULL.
-     */
-    @Transient
-    public boolean hasvalueforsalary = false;
-
     @Id // The primary key
     @GeneratedValue(strategy = GenerationType.AUTO) // We will let the database decide how to generate it
     private long employeeid; // long so we can have many rows
@@ -24,6 +19,12 @@ public class Employee
     @Column(nullable = false,
         unique = true)
     private String name;
+
+    /**
+     * Used to determine if the field salary has been set or is NULL.
+     */
+    @Transient
+    public boolean hasvalueforsalary = false;
 
     private double salary;
 
@@ -55,7 +56,8 @@ public class Employee
         // when adding, reading, updating, and delete, the operations should affect the emails table as well)
         orphanRemoval = true)
     // if we find a email that has a reference to an employee that does not exist, delete that email record
-    @JsonIgnoreProperties("employee")
+    @JsonIgnoreProperties(value = "employee",
+        allowSetters = true)
     private List<Email> emails = new ArrayList<>();
 
     public Employee()

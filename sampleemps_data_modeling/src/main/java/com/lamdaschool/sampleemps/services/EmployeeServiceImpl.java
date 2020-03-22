@@ -139,7 +139,7 @@ public class EmployeeServiceImpl
                 System.out.println("~~~~~~~~~~ Will be a Custom Query ~~~~~~~~~~");
             }
 
-            // delete the roles for the old employee we are replacing
+            // add the roles for the new employee we are replacing with
             for (EmployeeTitles et : employee.getJobnames())
             {
                 System.out.println("~~~~~~~~~~ Will be a Custom Query ~~~~~~~~~~");
