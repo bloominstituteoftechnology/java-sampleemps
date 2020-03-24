@@ -1,4 +1,4 @@
-package com.lamdaschool.sampleemps;
+package com.lambdaschool.sampleemps;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

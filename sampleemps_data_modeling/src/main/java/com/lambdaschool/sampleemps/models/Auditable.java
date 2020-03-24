@@ -1,4 +1,4 @@
-package com.lamdaschool.sampleemps.models;
+package com.lambdaschool.sampleemps.models;
 
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;

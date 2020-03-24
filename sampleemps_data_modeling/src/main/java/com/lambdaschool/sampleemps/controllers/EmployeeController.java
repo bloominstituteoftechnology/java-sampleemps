@@ -1,7 +1,8 @@
-package com.lamdaschool.sampleemps.controllers;
+package com.lambdaschool.sampleemps.controllers;
 
-import com.lamdaschool.sampleemps.models.Employee;
-import com.lamdaschool.sampleemps.services.EmployeeService;
+import com.lambdaschool.sampleemps.models.Employee;
+import com.lambdaschool.sampleemps.services.EmployeeService;
+import com.lambdaschool.sampleemps.views.EmpNameCountJobs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -106,6 +107,42 @@ public class EmployeeController
             long employeeid)
     {
         employeeService.delete(employeeid);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/job/counts")
+    public ResponseEntity<?> getEmpJobCounts()
+    {
+        List<EmpNameCountJobs> myEmployees = employeeService.getEmpNameCountJobs();
+        return new ResponseEntity<>(myEmployees,
+            HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/employee/{employeeid}/jobtitle/{jobtitleid}")
+    public ResponseEntity<?> deleteEmployeeJobTitlesByid(
+        @PathVariable
+            long employeeid,
+        @PathVariable
+            long jobtitleid)
+    {
+        employeeService.deleteEmpJobTitle(employeeid,
+        jobtitleid);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/employee/{employeeid}/jobtitle/{jobtitleid}/manager/{manager}")
+    public ResponseEntity<?> addEmployeeJobTitlesByid(
+        @PathVariable
+            long employeeid,
+        @PathVariable
+            long jobtitleid,
+        @PathVariable
+            String manager)
+    {
+        employeeService.addEmpJobTitle(employeeid,
+            jobtitleid, manager);
+
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

@@ -1,15 +1,17 @@
-package com.lamdaschool.sampleemps.services;
+package com.lambdaschool.sampleemps.services;
 
-import com.lamdaschool.sampleemps.models.Email;
-import com.lamdaschool.sampleemps.models.Employee;
-import com.lamdaschool.sampleemps.models.EmployeeTitles;
-import com.lamdaschool.sampleemps.models.JobTitle;
-import com.lamdaschool.sampleemps.repositories.EmployeeRepository;
-import com.lamdaschool.sampleemps.repositories.JobTitleRepository;
+import com.lambdaschool.sampleemps.models.Email;
+import com.lambdaschool.sampleemps.models.Employee;
+import com.lambdaschool.sampleemps.models.EmployeeTitles;
+import com.lambdaschool.sampleemps.models.JobTitle;
+import com.lambdaschool.sampleemps.repositories.EmployeeRepository;
+import com.lambdaschool.sampleemps.repositories.JobTitleRepository;
+import com.lambdaschool.sampleemps.views.EmpNameCountJobs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
@@ -177,6 +179,62 @@ public class EmployeeServiceImpl
         {
             throw new EntityNotFoundException("Employee " + employeeid + " Not Found");
         }
+    }
 
+    @Override
+    public List<EmpNameCountJobs> getEmpNameCountJobs()
+    {
+        return employeerepos.getCountEmpJobs();
+    }
+
+    @Transactional
+    @Override
+    public void deleteEmpJobTitle(
+        long employeeid,
+        long jobtitleid)
+    {
+        employeerepos.findById(employeeid)
+            .orElseThrow(() -> new EntityNotFoundException("Employee id " + employeeid + " not found!"));
+
+        jtrepos.findById(jobtitleid)
+            .orElseThrow(() -> new EntityNotFoundException("Job Title id " + jobtitleid + " not found!"));
+
+        if (employeerepos.checkEmpJobTitleCombo(employeeid,
+            jobtitleid)
+            .getCount() > 0)
+        {
+            employeerepos.deleteEmployeeJobTitleCombo(employeeid,
+                jobtitleid);
+        } else
+        {
+            throw new EntityNotFoundException("Employee and Job Title Combination Does Not Exists");
+        }
+    }
+
+    @Transactional
+    @Override
+    public void addEmpJobTitle(
+        long employeeid,
+        long jobtitleid,
+        String manager)
+    {
+        employeerepos.findById(employeeid)
+            .orElseThrow(() -> new EntityNotFoundException("Employee id " + employeeid + " not found!"));
+
+        jtrepos.findById(jobtitleid)
+            .orElseThrow(() -> new EntityNotFoundException("Job Title id " + jobtitleid + " not found!"));
+
+        if (employeerepos.checkEmpJobTitleCombo(employeeid,
+            jobtitleid)
+            .getCount() <= 0)
+        {
+            employeerepos.insertEmployeeJobTitleCombo("SYSTEM",
+                employeeid,
+                jobtitleid,
+                manager);
+        } else
+        {
+            throw new EntityExistsException("Employee and Job Title Combination Exists");
+        }
     }
 }

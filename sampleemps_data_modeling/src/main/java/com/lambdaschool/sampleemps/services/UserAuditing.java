@@ -1,4 +1,4 @@
-package com.lamdaschool.sampleemps.services;
+package com.lambdaschool.sampleemps.services;
 
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Component;

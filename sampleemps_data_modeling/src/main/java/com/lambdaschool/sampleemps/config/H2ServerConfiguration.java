@@ -1,4 +1,4 @@
-package com.lamdaschool.sampleemps.config;
+package com.lambdaschool.sampleemps.config;
 
 import org.h2.tools.Server;
 import org.springframework.beans.factory.annotation.Value;
