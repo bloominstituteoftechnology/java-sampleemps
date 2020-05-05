@@ -1,8 +1,8 @@
-# Java Sample Employee Data
+# Java Sample Employee Modeling Data
 
 ## Introduction
 
-This project is used to introduction Java Spring REST API CRUD applications. As such it is a small application showing just the code that is needed to explain the topic.
+This project is used to introduce Java Spring REST API CRUD applications. As such it is a small application showing just the code that is needed to explain the topic.
 
 ## Database layout
 
@@ -14,7 +14,7 @@ The table layouts are as follows:
 
 ![Image of Database Layout](../sampleemps-db.png)
 
-Using the provided seed data, the given endpoint will product the stated output. Expand each endpoint to see it correct output. Due to the random nature of using Javafaker, your actual output will probably vary!!!
+Using the provided seed data, the given endpoint will produce the stated output. Expand each endpoint to see it's correct output. Due to the random nature of using Javafaker, your actual output will probably vary!!!
 
 <details>
 <summary>http://localhost:2019/employees/employees</summary>

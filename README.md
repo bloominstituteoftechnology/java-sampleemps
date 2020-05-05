@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This project is used to introduction Java Spring REST API CRUD applications. As such it is a small application showing just the code that is needed to explain the topic.
+This project is used to introduce Java Spring REST API CRUD applications. As such it is a small application showing just the code that is needed to explain the topic.
 
 ## Database layout
 
