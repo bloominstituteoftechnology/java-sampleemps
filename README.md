@@ -14,7 +14,9 @@ The table layouts are as follows:
 
 ![Image of Database Layout](sampleemps-db.png)
 
-Two different applications exist
+Three different applications exist
 
 - sampleemps_read - Includes only reading data
 - sampleemps_delete_save_update - Finishes the CRUD application by adding Creating, Updating, and Deleting
+- sampleemps_data_modeling - adds auditing fields and more to the CRUD application
+

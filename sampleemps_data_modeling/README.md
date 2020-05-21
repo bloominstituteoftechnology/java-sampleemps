@@ -9,10 +9,11 @@ This project is used to introduce Java Spring REST API CRUD applications. As suc
 The table layouts are as follows:
 
 - Employee is the driving table
-- Email has a Many-To-One relationship with Employee. Each employee has many emails. Each email has only one employee.
+- Email has a Many-To-One relationship with Employee. Each employee has many emails. Each email has only one employee
 - Jobtitles has a Many-To-Many relationship with Employee
+- EmployeeTitles is the join table to represent the Many-To_Many relationship between Employee and JobTitles
 
-![Image of Database Layout](../sampleemps-db.png)
+![Image of Database Layout](sampleemps-db.png)
 
 Using the provided seed data, the given endpoint will produce the stated output. Expand each endpoint to see it's correct output. Due to the random nature of using Javafaker, your actual output will probably vary!!!
 
@@ -22,512 +23,642 @@ Using the provided seed data, the given endpoint will produce the stated output.
 ```JSON
 [
     {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:35",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:35",
         "employeeid": 3,
         "name": "CINNAMON",
         "salary": 80000.0,
-        "jobtitles": [
+        "jobnames": [
             {
-                "jobtitleid": 1,
-                "title": "Big Boss"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:35",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:35",
+                "jobname": {
+                    "createdBy": "SYSTEM",
+                    "createdDate": "2020-05-20 09:27:35",
+                    "lastModifiedBy": "SYSTEM",
+                    "lastModifiedDate": "2020-05-20 09:27:35",
+                    "jobtitleid": 1,
+                    "title": "Big Boss"
+                },
+                "manager": "MOJO"
             },
             {
-                "jobtitleid": 2,
-                "title": "Wizard"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:35",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:35",
+                "jobname": {
+                    "createdBy": "SYSTEM",
+                    "createdDate": "2020-05-20 09:27:35",
+                    "lastModifiedBy": "SYSTEM",
+                    "lastModifiedDate": "2020-05-20 09:27:35",
+                    "jobtitleid": 2,
+                    "title": "Wizard"
+                },
+                "manager": "STUBS"
             }
         ],
         "emails": [
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:35",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:35",
                 "emailid": 4,
                 "email": "hops@local.com"
             },
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:35",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:35",
                 "emailid": 5,
                 "email": "bunny@hoppin.local"
             }
         ]
     },
     {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:35",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:35",
         "employeeid": 6,
         "name": "BARNBARN",
         "salary": 80000.0,
-        "jobtitles": [
+        "jobnames": [
             {
-                "jobtitleid": 1,
-                "title": "Big Boss"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:35",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:35",
+                "jobname": {
+                    "createdBy": "SYSTEM",
+                    "createdDate": "2020-05-20 09:27:35",
+                    "lastModifiedBy": "SYSTEM",
+                    "lastModifiedDate": "2020-05-20 09:27:35",
+                    "jobtitleid": 1,
+                    "title": "Big Boss"
+                },
+                "manager": "STUBS"
             }
         ],
         "emails": [
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:35",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:35",
                 "emailid": 7,
                 "email": "barnbarn@local.com"
             }
         ]
     },
     {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:35",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:35",
         "employeeid": 8,
         "name": "JOHN",
         "salary": 75000.0,
-        "jobtitles": [],
+        "jobnames": [
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:35",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:35",
+                "jobname": {
+                    "createdBy": "SYSTEM",
+                    "createdDate": "2020-05-20 09:27:35",
+                    "lastModifiedBy": "SYSTEM",
+                    "lastModifiedDate": "2020-05-20 09:27:35",
+                    "jobtitleid": 1,
+                    "title": "Big Boss"
+                },
+                "manager": "MOJO"
+            }
+        ],
         "emails": []
     },
     {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
         "employeeid": 9,
-        "name": "Donte Hilll",
-        "salary": 57979.065072965044,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": [
-            {
-                "emailid": 10,
-                "email": "lavonia.kertzmann@gmail.com"
-            }
-        ]
+        "name": "Lesley Crona",
+        "salary": 75238.58321823864,
+        "jobnames": [],
+        "emails": []
     },
     {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 10,
+        "name": "Albina Satterfield",
+        "salary": 75072.9150171441,
+        "jobnames": [],
+        "emails": []
+    },
+    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
         "employeeid": 11,
-        "name": "Orville Gerhold",
-        "salary": 111917.77352178165,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "name": "Alfred Kuphal I",
+        "salary": 110521.2259214581,
+        "jobnames": [],
+        "emails": []
+    },
+    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 12,
+        "name": "Mr. Fay Volkman",
+        "salary": 53986.74403946521,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 12,
-                "email": "victor.bechtelar@yahoo.com"
-            },
-            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 13,
-                "email": "venice.bartoletti@hotmail.com"
+                "email": "etsuko.hills@hotmail.com"
             }
         ]
     },
     {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
         "employeeid": 14,
-        "name": "Dwayne Wehner III",
-        "salary": 137332.1995000462,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "name": "Venice Kub",
+        "salary": 81661.5423435969,
+        "jobnames": [],
         "emails": [
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 15,
-                "email": "royce.gorczany@gmail.com"
-            }
-        ]
-    },
-    {
-        "employeeid": 16,
-        "name": "Debbie McGlynn",
-        "salary": 97201.81880242104,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": [
-            {
-                "emailid": 17,
-                "email": "nilda.daniel@yahoo.com"
+                "email": "angelic.kilback@yahoo.com"
             },
             {
-                "emailid": 18,
-                "email": "jayson.parisian@yahoo.com"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 16,
+                "email": "carrol.okeefe@yahoo.com"
             }
         ]
     },
     {
-        "employeeid": 19,
-        "name": "Ms. Horace Greenholt",
-        "salary": 115278.55136961937,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 17,
+        "name": "Douglass Shanahan",
+        "salary": 72842.32064547043,
+        "jobnames": [],
         "emails": []
     },
     {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 18,
+        "name": "Georgann Bernier III",
+        "salary": 71161.57530385739,
+        "jobnames": [],
+        "emails": [
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 19,
+                "email": "kim.yundt@hotmail.com"
+            }
+        ]
+    },
+    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
         "employeeid": 20,
-        "name": "Hortencia Parker",
-        "salary": 91600.46382982255,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": []
-    },
-    {
-        "employeeid": 21,
-        "name": "Vallie Bosco",
-        "salary": 117934.83083208356,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "name": "Rosamond Shanahan",
+        "salary": 120184.37050907458,
+        "jobnames": [],
         "emails": [
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 21,
+                "email": "sheldon.denesik@gmail.com"
+            },
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 22,
-                "email": "gilma.bechtelar@hotmail.com"
-            },
-            {
-                "emailid": 23,
-                "email": "vertie.quitzon@gmail.com"
+                "email": "kyle.oconner@hotmail.com"
             }
         ]
     },
     {
-        "employeeid": 24,
-        "name": "Marina Parisian",
-        "salary": 70104.86865072964,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 23,
+        "name": "Greg Carter IV",
+        "salary": 72315.93297384189,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 25,
-                "email": "liza.beahan@hotmail.com"
-            },
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 24,
+                "email": "shonta.legros@gmail.com"
+            }
+        ]
+    },
+    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 25,
+        "name": "Theresa Legros",
+        "salary": 61855.506276924076,
+        "jobnames": [],
+        "emails": [
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 26,
-                "email": "carroll.quigley@yahoo.com"
+                "email": "tory.monahan@gmail.com"
             }
         ]
     },
     {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
         "employeeid": 27,
-        "name": "Rima Larson",
-        "salary": 65961.8528770834,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "name": "Hyon Kozey",
+        "salary": 146343.23459214822,
+        "jobnames": [],
         "emails": [
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 28,
-                "email": "kimiko.lemke@hotmail.com"
+                "email": "columbus.lakin@hotmail.com"
+            },
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 29,
+                "email": "ute.howe@gmail.com"
             }
         ]
     },
     {
-        "employeeid": 29,
-        "name": "Rodney Lowe",
-        "salary": 149850.66273798535,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 30,
+        "name": "Deidre Wehner",
+        "salary": 122047.57997149513,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 30,
-                "email": "emelda.ledner@hotmail.com"
-            }
-        ]
-    },
-    {
-        "employeeid": 31,
-        "name": "Manuel Satterfield",
-        "salary": 58489.21432691639,
-        "jobtitles": [
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 31,
+                "email": "corrina.johnston@yahoo.com"
+            },
             {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": [
-            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 32,
-                "email": "jazmine.schowalter@yahoo.com"
-            },
-            {
-                "emailid": 33,
-                "email": "everette.little@hotmail.com"
+                "email": "cyndi.balistreri@hotmail.com"
             }
         ]
     },
     {
-        "employeeid": 34,
-        "name": "Linwood Runolfsdottir",
-        "salary": 92237.87852876788,
-        "jobtitles": [
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 33,
+        "name": "Karie Senger",
+        "salary": 69753.78726125232,
+        "jobnames": [],
+        "emails": [
             {
-                "jobtitleid": 1,
-                "title": "Big Boss"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 34,
+                "email": "bobette.borer@yahoo.com"
             }
-        ],
-        "emails": []
+        ]
     },
     {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
         "employeeid": 35,
-        "name": "Dr. Neta Yundt",
-        "salary": 141671.03892213776,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": []
-    },
-    {
-        "employeeid": 36,
-        "name": "Paul Legros",
-        "salary": 138444.24324724264,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "name": "Chad Lueilwitz",
+        "salary": 147323.64420229153,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 37,
-                "email": "kip.connelly@gmail.com"
-            },
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 36,
+                "email": "vikki.nader@yahoo.com"
+            }
+        ]
+    },
+    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 37,
+        "name": "Daron Reilly",
+        "salary": 114376.62783605908,
+        "jobnames": [],
+        "emails": [
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 38,
-                "email": "quinn.braun@hotmail.com"
+                "email": "huey.bahringer@gmail.com"
+            },
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 39,
+                "email": "jerold.effertz@yahoo.com"
             }
         ]
     },
     {
-        "employeeid": 39,
-        "name": "Rod Volkman",
-        "salary": 126232.6076639922,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 40,
+        "name": "Darcey Hodkiewicz",
+        "salary": 89563.2304175265,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 40,
-                "email": "ruthie.bogisich@yahoo.com"
-            }
-        ]
-    },
-    {
-        "employeeid": 41,
-        "name": "Giuseppe Rice",
-        "salary": 120020.46386514937,
-        "jobtitles": [
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 41,
+                "email": "aurelia.littel@gmail.com"
+            },
             {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": [
-            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 42,
-                "email": "domingo.rosenbaum@yahoo.com"
+                "email": "jeanine.bode@yahoo.com"
             }
         ]
     },
     {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
         "employeeid": 43,
-        "name": "Eloy Kutch",
-        "salary": 130132.23591651948,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "name": "Kamala Rau",
+        "salary": 82660.96913173198,
+        "jobnames": [],
+        "emails": []
+    },
+    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 44,
+        "name": "Andra Hammes",
+        "salary": 127269.07812767939,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 44,
-                "email": "colby.macgyver@gmail.com"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 45,
+                "email": "leonel.conroy@hotmail.com"
             }
         ]
     },
     {
-        "employeeid": 45,
-        "name": "Rodolfo Johnston",
-        "salary": 63800.38363702623,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": []
-    },
-    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
         "employeeid": 46,
-        "name": "Trula Schultz",
-        "salary": 63685.62932203562,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": []
-    },
-    {
-        "employeeid": 47,
-        "name": "Hortense Goodwin",
-        "salary": 125217.97290081353,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "name": "Margo Hoppe",
+        "salary": 130253.76173539522,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 48,
-                "email": "ron.bogisich@hotmail.com"
-            },
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 47,
+                "email": "quyen.parisian@hotmail.com"
+            }
+        ]
+    },
+    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 48,
+        "name": "Claude Goodwin",
+        "salary": 140637.4086647122,
+        "jobnames": [],
+        "emails": [
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 49,
-                "email": "korey.white@yahoo.com"
-            }
-        ]
-    },
-    {
-        "employeeid": 50,
-        "name": "Tari Romaguera",
-        "salary": 127166.00968556589,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": [
-            {
-                "emailid": 51,
-                "email": "kyle.ohara@gmail.com"
-            }
-        ]
-    },
-    {
-        "employeeid": 52,
-        "name": "Mr. Orval Prosacco",
-        "salary": 107675.93053377056,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": [
-            {
-                "emailid": 53,
-                "email": "demarcus.kiehn@yahoo.com"
+                "email": "lavina.mann@hotmail.com"
             },
             {
-                "emailid": 54,
-                "email": "frances.rolfson@hotmail.com"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 50,
+                "email": "brant.haag@gmail.com"
             }
         ]
     },
     {
-        "employeeid": 55,
-        "name": "Carl Konopelski",
-        "salary": 89897.81505103297,
-        "jobtitles": [
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 51,
+        "name": "Mickey Dare I",
+        "salary": 128284.75469574441,
+        "jobnames": [],
+        "emails": [
             {
-                "jobtitleid": 1,
-                "title": "Big Boss"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 52,
+                "email": "caitlyn.fadel@hotmail.com"
             }
-        ],
+        ]
+    },
+    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 53,
+        "name": "Demetrius Effertz",
+        "salary": 127762.5739489486,
+        "jobnames": [],
         "emails": []
     },
     {
-        "employeeid": 56,
-        "name": "Levi Baumbach III",
-        "salary": 149025.67323776847,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 54,
+        "name": "Randal Borer V",
+        "salary": 103081.0398124823,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 57,
-                "email": "jarod.stokes@hotmail.com"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 55,
+                "email": "benedict.gibson@yahoo.com"
+            },
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 56,
+                "email": "shannon.weimann@hotmail.com"
             }
         ]
     },
     {
-        "employeeid": 58,
-        "name": "Devin Koepp III",
-        "salary": 59413.499039909075,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 57,
+        "name": "Rosalee Christiansen DVM",
+        "salary": 95800.73492155221,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 59,
-                "email": "esperanza.cassin@hotmail.com"
-            },
-            {
-                "emailid": 60,
-                "email": "matt.fahey@gmail.com"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 58,
+                "email": "marisela.wisozk@gmail.com"
             }
         ]
-    }
-]
-```
-
-</details>
-
-<details>
-<summary>http://localhost:2019/employees/employeename/mon</summary>
-
-```JSON
-[
+    },
     {
-        "employeeid": 3,
-        "name": "CINNAMON",
-        "salary": 80000.0,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            },
-            {
-                "jobtitleid": 2,
-                "title": "Wizard"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 59,
+        "name": "Delores Kautzer Jr.",
+        "salary": 77157.08442955291,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 4,
-                "email": "hops@local.com"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 60,
+                "email": "leland.kohler@gmail.com"
             },
             {
-                "emailid": 5,
-                "email": "bunny@hoppin.local"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 61,
+                "email": "chrissy.monahan@yahoo.com"
             }
         ]
     }
@@ -542,575 +673,801 @@ Using the provided seed data, the given endpoint will produce the stated output.
 ```JSON
 [
     {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:35",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:35",
         "employeeid": 3,
         "name": "CINNAMON",
         "salary": 80000.0,
-        "jobtitles": [
+        "jobnames": [
             {
-                "jobtitleid": 1,
-                "title": "Big Boss"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:35",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:35",
+                "jobname": {
+                    "createdBy": "SYSTEM",
+                    "createdDate": "2020-05-20 09:27:35",
+                    "lastModifiedBy": "SYSTEM",
+                    "lastModifiedDate": "2020-05-20 09:27:35",
+                    "jobtitleid": 1,
+                    "title": "Big Boss"
+                },
+                "manager": "MOJO"
             },
             {
-                "jobtitleid": 2,
-                "title": "Wizard"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:35",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:35",
+                "jobname": {
+                    "createdBy": "SYSTEM",
+                    "createdDate": "2020-05-20 09:27:35",
+                    "lastModifiedBy": "SYSTEM",
+                    "lastModifiedDate": "2020-05-20 09:27:35",
+                    "jobtitleid": 2,
+                    "title": "Wizard"
+                },
+                "manager": "STUBS"
             }
         ],
         "emails": [
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:35",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:35",
                 "emailid": 4,
                 "email": "hops@local.com"
             },
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:35",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:35",
                 "emailid": 5,
                 "email": "bunny@hoppin.local"
             }
         ]
     },
     {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:35",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:35",
         "employeeid": 6,
         "name": "BARNBARN",
         "salary": 80000.0,
-        "jobtitles": [
+        "jobnames": [
             {
-                "jobtitleid": 1,
-                "title": "Big Boss"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:35",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:35",
+                "jobname": {
+                    "createdBy": "SYSTEM",
+                    "createdDate": "2020-05-20 09:27:35",
+                    "lastModifiedBy": "SYSTEM",
+                    "lastModifiedDate": "2020-05-20 09:27:35",
+                    "jobtitleid": 1,
+                    "title": "Big Boss"
+                },
+                "manager": "STUBS"
             }
         ],
         "emails": [
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:35",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:35",
                 "emailid": 7,
                 "email": "barnbarn@local.com"
             }
         ]
     },
     {
-        "employeeid": 9,
-        "name": "Donte Hilll",
-        "salary": 57979.065072965044,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 12,
+        "name": "Mr. Fay Volkman",
+        "salary": 53986.74403946521,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 10,
-                "email": "lavonia.kertzmann@gmail.com"
-            }
-        ]
-    },
-    {
-        "employeeid": 11,
-        "name": "Orville Gerhold",
-        "salary": 111917.77352178165,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": [
-            {
-                "emailid": 12,
-                "email": "victor.bechtelar@yahoo.com"
-            },
-            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 13,
-                "email": "venice.bartoletti@hotmail.com"
+                "email": "etsuko.hills@hotmail.com"
             }
         ]
     },
     {
-        "employeeid": 11,
-        "name": "Orville Gerhold",
-        "salary": 111917.77352178165,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": [
-            {
-                "emailid": 12,
-                "email": "victor.bechtelar@yahoo.com"
-            },
-            {
-                "emailid": 13,
-                "email": "venice.bartoletti@hotmail.com"
-            }
-        ]
-    },
-    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
         "employeeid": 14,
-        "name": "Dwayne Wehner III",
-        "salary": 137332.1995000462,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "name": "Venice Kub",
+        "salary": 81661.5423435969,
+        "jobnames": [],
         "emails": [
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 15,
-                "email": "royce.gorczany@gmail.com"
-            }
-        ]
-    },
-    {
-        "employeeid": 16,
-        "name": "Debbie McGlynn",
-        "salary": 97201.81880242104,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": [
-            {
-                "emailid": 17,
-                "email": "nilda.daniel@yahoo.com"
+                "email": "angelic.kilback@yahoo.com"
             },
             {
-                "emailid": 18,
-                "email": "jayson.parisian@yahoo.com"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 16,
+                "email": "carrol.okeefe@yahoo.com"
             }
         ]
     },
     {
-        "employeeid": 16,
-        "name": "Debbie McGlynn",
-        "salary": 97201.81880242104,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 14,
+        "name": "Venice Kub",
+        "salary": 81661.5423435969,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 17,
-                "email": "nilda.daniel@yahoo.com"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 15,
+                "email": "angelic.kilback@yahoo.com"
             },
             {
-                "emailid": 18,
-                "email": "jayson.parisian@yahoo.com"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 16,
+                "email": "carrol.okeefe@yahoo.com"
             }
         ]
     },
     {
-        "employeeid": 21,
-        "name": "Vallie Bosco",
-        "salary": 117934.83083208356,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 18,
+        "name": "Georgann Bernier III",
+        "salary": 71161.57530385739,
+        "jobnames": [],
         "emails": [
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 19,
+                "email": "kim.yundt@hotmail.com"
+            }
+        ]
+    },
+    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 20,
+        "name": "Rosamond Shanahan",
+        "salary": 120184.37050907458,
+        "jobnames": [],
+        "emails": [
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 21,
+                "email": "sheldon.denesik@gmail.com"
+            },
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 22,
-                "email": "gilma.bechtelar@hotmail.com"
-            },
-            {
-                "emailid": 23,
-                "email": "vertie.quitzon@gmail.com"
+                "email": "kyle.oconner@hotmail.com"
             }
         ]
     },
     {
-        "employeeid": 21,
-        "name": "Vallie Bosco",
-        "salary": 117934.83083208356,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 20,
+        "name": "Rosamond Shanahan",
+        "salary": 120184.37050907458,
+        "jobnames": [],
         "emails": [
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 21,
+                "email": "sheldon.denesik@gmail.com"
+            },
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 22,
-                "email": "gilma.bechtelar@hotmail.com"
-            },
-            {
-                "emailid": 23,
-                "email": "vertie.quitzon@gmail.com"
+                "email": "kyle.oconner@hotmail.com"
             }
         ]
     },
     {
-        "employeeid": 24,
-        "name": "Marina Parisian",
-        "salary": 70104.86865072964,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 23,
+        "name": "Greg Carter IV",
+        "salary": 72315.93297384189,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 25,
-                "email": "liza.beahan@hotmail.com"
-            },
-            {
-                "emailid": 26,
-                "email": "carroll.quigley@yahoo.com"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 24,
+                "email": "shonta.legros@gmail.com"
             }
         ]
     },
     {
-        "employeeid": 24,
-        "name": "Marina Parisian",
-        "salary": 70104.86865072964,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 25,
+        "name": "Theresa Legros",
+        "salary": 61855.506276924076,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 25,
-                "email": "liza.beahan@hotmail.com"
-            },
-            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 26,
-                "email": "carroll.quigley@yahoo.com"
+                "email": "tory.monahan@gmail.com"
             }
         ]
     },
     {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
         "employeeid": 27,
-        "name": "Rima Larson",
-        "salary": 65961.8528770834,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "name": "Hyon Kozey",
+        "salary": 146343.23459214822,
+        "jobnames": [],
         "emails": [
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 28,
-                "email": "kimiko.lemke@hotmail.com"
+                "email": "columbus.lakin@hotmail.com"
+            },
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 29,
+                "email": "ute.howe@gmail.com"
             }
         ]
     },
     {
-        "employeeid": 29,
-        "name": "Rodney Lowe",
-        "salary": 149850.66273798535,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 27,
+        "name": "Hyon Kozey",
+        "salary": 146343.23459214822,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 30,
-                "email": "emelda.ledner@hotmail.com"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 28,
+                "email": "columbus.lakin@hotmail.com"
+            },
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 29,
+                "email": "ute.howe@gmail.com"
             }
         ]
     },
     {
-        "employeeid": 31,
-        "name": "Manuel Satterfield",
-        "salary": 58489.21432691639,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 30,
+        "name": "Deidre Wehner",
+        "salary": 122047.57997149513,
+        "jobnames": [],
         "emails": [
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 31,
+                "email": "corrina.johnston@yahoo.com"
+            },
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 32,
-                "email": "jazmine.schowalter@yahoo.com"
-            },
-            {
-                "emailid": 33,
-                "email": "everette.little@hotmail.com"
+                "email": "cyndi.balistreri@hotmail.com"
             }
         ]
     },
     {
-        "employeeid": 31,
-        "name": "Manuel Satterfield",
-        "salary": 58489.21432691639,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 30,
+        "name": "Deidre Wehner",
+        "salary": 122047.57997149513,
+        "jobnames": [],
         "emails": [
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 31,
+                "email": "corrina.johnston@yahoo.com"
+            },
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 32,
-                "email": "jazmine.schowalter@yahoo.com"
-            },
-            {
-                "emailid": 33,
-                "email": "everette.little@hotmail.com"
+                "email": "cyndi.balistreri@hotmail.com"
             }
         ]
     },
     {
-        "employeeid": 36,
-        "name": "Paul Legros",
-        "salary": 138444.24324724264,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 33,
+        "name": "Karie Senger",
+        "salary": 69753.78726125232,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 37,
-                "email": "kip.connelly@gmail.com"
-            },
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 34,
+                "email": "bobette.borer@yahoo.com"
+            }
+        ]
+    },
+    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 35,
+        "name": "Chad Lueilwitz",
+        "salary": 147323.64420229153,
+        "jobnames": [],
+        "emails": [
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 36,
+                "email": "vikki.nader@yahoo.com"
+            }
+        ]
+    },
+    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 37,
+        "name": "Daron Reilly",
+        "salary": 114376.62783605908,
+        "jobnames": [],
+        "emails": [
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 38,
-                "email": "quinn.braun@hotmail.com"
-            }
-        ]
-    },
-    {
-        "employeeid": 36,
-        "name": "Paul Legros",
-        "salary": 138444.24324724264,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": [
-            {
-                "emailid": 37,
-                "email": "kip.connelly@gmail.com"
+                "email": "huey.bahringer@gmail.com"
             },
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 39,
+                "email": "jerold.effertz@yahoo.com"
+            }
+        ]
+    },
+    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 37,
+        "name": "Daron Reilly",
+        "salary": 114376.62783605908,
+        "jobnames": [],
+        "emails": [
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 38,
-                "email": "quinn.braun@hotmail.com"
+                "email": "huey.bahringer@gmail.com"
+            },
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 39,
+                "email": "jerold.effertz@yahoo.com"
             }
         ]
     },
     {
-        "employeeid": 39,
-        "name": "Rod Volkman",
-        "salary": 126232.6076639922,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 40,
+        "name": "Darcey Hodkiewicz",
+        "salary": 89563.2304175265,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 40,
-                "email": "ruthie.bogisich@yahoo.com"
-            }
-        ]
-    },
-    {
-        "employeeid": 41,
-        "name": "Giuseppe Rice",
-        "salary": 120020.46386514937,
-        "jobtitles": [
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 41,
+                "email": "aurelia.littel@gmail.com"
+            },
             {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": [
-            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 42,
-                "email": "domingo.rosenbaum@yahoo.com"
+                "email": "jeanine.bode@yahoo.com"
             }
         ]
     },
     {
-        "employeeid": 43,
-        "name": "Eloy Kutch",
-        "salary": 130132.23591651948,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 40,
+        "name": "Darcey Hodkiewicz",
+        "salary": 89563.2304175265,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 44,
-                "email": "colby.macgyver@gmail.com"
-            }
-        ]
-    },
-    {
-        "employeeid": 47,
-        "name": "Hortense Goodwin",
-        "salary": 125217.97290081353,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": [
-            {
-                "emailid": 48,
-                "email": "ron.bogisich@hotmail.com"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 41,
+                "email": "aurelia.littel@gmail.com"
             },
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 42,
+                "email": "jeanine.bode@yahoo.com"
+            }
+        ]
+    },
+    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 44,
+        "name": "Andra Hammes",
+        "salary": 127269.07812767939,
+        "jobnames": [],
+        "emails": [
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 45,
+                "email": "leonel.conroy@hotmail.com"
+            }
+        ]
+    },
+    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 46,
+        "name": "Margo Hoppe",
+        "salary": 130253.76173539522,
+        "jobnames": [],
+        "emails": [
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 47,
+                "email": "quyen.parisian@hotmail.com"
+            }
+        ]
+    },
+    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 48,
+        "name": "Claude Goodwin",
+        "salary": 140637.4086647122,
+        "jobnames": [],
+        "emails": [
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 49,
-                "email": "korey.white@yahoo.com"
+                "email": "lavina.mann@hotmail.com"
+            },
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 50,
+                "email": "brant.haag@gmail.com"
             }
         ]
     },
     {
-        "employeeid": 47,
-        "name": "Hortense Goodwin",
-        "salary": 125217.97290081353,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 48,
+        "name": "Claude Goodwin",
+        "salary": 140637.4086647122,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 48,
-                "email": "ron.bogisich@hotmail.com"
-            },
-            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 49,
-                "email": "korey.white@yahoo.com"
-            }
-        ]
-    },
-    {
-        "employeeid": 50,
-        "name": "Tari Romaguera",
-        "salary": 127166.00968556589,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": [
-            {
-                "emailid": 51,
-                "email": "kyle.ohara@gmail.com"
-            }
-        ]
-    },
-    {
-        "employeeid": 52,
-        "name": "Mr. Orval Prosacco",
-        "salary": 107675.93053377056,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": [
-            {
-                "emailid": 53,
-                "email": "demarcus.kiehn@yahoo.com"
+                "email": "lavina.mann@hotmail.com"
             },
             {
-                "emailid": 54,
-                "email": "frances.rolfson@hotmail.com"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 50,
+                "email": "brant.haag@gmail.com"
             }
         ]
     },
     {
-        "employeeid": 52,
-        "name": "Mr. Orval Prosacco",
-        "salary": 107675.93053377056,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 51,
+        "name": "Mickey Dare I",
+        "salary": 128284.75469574441,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 53,
-                "email": "demarcus.kiehn@yahoo.com"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 52,
+                "email": "caitlyn.fadel@hotmail.com"
+            }
+        ]
+    },
+    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 54,
+        "name": "Randal Borer V",
+        "salary": 103081.0398124823,
+        "jobnames": [],
+        "emails": [
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 55,
+                "email": "benedict.gibson@yahoo.com"
             },
             {
-                "emailid": 54,
-                "email": "frances.rolfson@hotmail.com"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 56,
+                "email": "shannon.weimann@hotmail.com"
             }
         ]
     },
     {
-        "employeeid": 56,
-        "name": "Levi Baumbach III",
-        "salary": 149025.67323776847,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 54,
+        "name": "Randal Borer V",
+        "salary": 103081.0398124823,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 57,
-                "email": "jarod.stokes@hotmail.com"
-            }
-        ]
-    },
-    {
-        "employeeid": 58,
-        "name": "Devin Koepp III",
-        "salary": 59413.499039909075,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
-        "emails": [
-            {
-                "emailid": 59,
-                "email": "esperanza.cassin@hotmail.com"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 55,
+                "email": "benedict.gibson@yahoo.com"
             },
             {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 56,
+                "email": "shannon.weimann@hotmail.com"
+            }
+        ]
+    },
+    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 57,
+        "name": "Rosalee Christiansen DVM",
+        "salary": 95800.73492155221,
+        "jobnames": [],
+        "emails": [
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 58,
+                "email": "marisela.wisozk@gmail.com"
+            }
+        ]
+    },
+    {
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 59,
+        "name": "Delores Kautzer Jr.",
+        "salary": 77157.08442955291,
+        "jobnames": [],
+        "emails": [
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
                 "emailid": 60,
-                "email": "matt.fahey@gmail.com"
+                "email": "leland.kohler@gmail.com"
+            },
+            {
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 61,
+                "email": "chrissy.monahan@yahoo.com"
             }
         ]
     },
     {
-        "employeeid": 58,
-        "name": "Devin Koepp III",
-        "salary": 59413.499039909075,
-        "jobtitles": [
-            {
-                "jobtitleid": 1,
-                "title": "Big Boss"
-            }
-        ],
+        "createdBy": "SYSTEM",
+        "createdDate": "2020-05-20 09:27:36",
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": "2020-05-20 09:27:36",
+        "employeeid": 59,
+        "name": "Delores Kautzer Jr.",
+        "salary": 77157.08442955291,
+        "jobnames": [],
         "emails": [
             {
-                "emailid": 59,
-                "email": "esperanza.cassin@hotmail.com"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 60,
+                "email": "leland.kohler@gmail.com"
             },
             {
-                "emailid": 60,
-                "email": "matt.fahey@gmail.com"
+                "createdBy": "SYSTEM",
+                "createdDate": "2020-05-20 09:27:36",
+                "lastModifiedBy": "SYSTEM",
+                "lastModifiedDate": "2020-05-20 09:27:36",
+                "emailid": 61,
+                "email": "chrissy.monahan@yahoo.com"
             }
         ]
     }
