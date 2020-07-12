@@ -20,7 +20,7 @@ public class Email
 
     @ManyToOne
     @JoinColumn(name = "employeeid",
-        nullable = false)
+            nullable = false)
     private Employee employee;
 
     public Email()
@@ -28,7 +28,8 @@ public class Email
         // the default constructor is required by the JPA
     }
 
-    public Email(String email, Employee employee)
+    public Email(String email,
+                 Employee employee)
     {
         this.email = email;
         this.employee = employee;

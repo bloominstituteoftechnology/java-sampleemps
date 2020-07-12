@@ -1,16 +1,8 @@
 package com.lambdaschool.sampleemps.models;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -43,6 +35,8 @@ public class Employee
     @JoinTable(name = "employeetitles",
             joinColumns = @JoinColumn(name = "employeeid"),
             inverseJoinColumns = @JoinColumn(name = "jobtitleid"))
+    // we want to ignore, not display, the employees collection found in JobTitle
+    @JsonIgnoreProperties(value = "employees")
     Set<JobTitle> jobtitles = new HashSet<>();
 
     @OneToMany(mappedBy = "employee",
@@ -50,6 +44,8 @@ public class Employee
             // when adding, reading, updating, and delete, the operations should affect the emails table as well)
             orphanRemoval = true)
     // if we find a email that has a reference to an employee that does not exist, delete that email record
+    // we want to ignore, not display, the employee object found in Email
+    @JsonIgnoreProperties(value = "employee")
     private List<Email> emails = new ArrayList<>();
 
     public Employee()

@@ -2,7 +2,13 @@ package com.lambdaschool.sampleemps.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "emails")
@@ -17,12 +23,19 @@ public class Email
     @ManyToOne
     @JoinColumn(name = "employeeid",
         nullable = false)
+    // we want to ignore, not display, the emails collection from Employee
     @JsonIgnoreProperties("emails")
     private Employee employee;
 
     public Email()
     {
         // the default constructor is required by the JPA
+    }
+
+    public Email(String email, Employee employee)
+    {
+        this.email = email;
+        this.employee = employee;
     }
 
     public long getEmailid()

@@ -18,8 +18,7 @@ import java.util.Set;
 
 @Transactional
 @Component
-public class SeedData
-        implements CommandLineRunner
+public class SeedData implements CommandLineRunner
 {
     @Autowired
     private EmployeeService employeeService;
@@ -30,8 +29,7 @@ public class SeedData
     private Random random = new Random();
 
     @Override
-    public void run(String... args) throws
-            Exception
+    public void run(String... args) throws Exception
     {
         JobTitle jt1 = new JobTitle();
         jt1.setTitle("Big Boss");
