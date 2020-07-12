@@ -16,6 +16,4 @@ public interface EmployeeService
     Employee save(Employee employee);
 
     List<EmpNameCountJobs> getEmpNameCountJobs();
-
-    void delete(long employeeid);
 }

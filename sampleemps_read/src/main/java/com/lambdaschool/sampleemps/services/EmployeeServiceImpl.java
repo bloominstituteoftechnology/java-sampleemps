@@ -56,18 +56,4 @@ public class EmployeeServiceImpl
     {
         return employeerepos.getCountEmpJobs();
     }
-
-    @Transactional
-    @Override
-    public void delete(long employeeid)
-    {
-        if (employeerepos.findById(employeeid)
-                .isPresent())
-        {
-            employeerepos.deleteById(employeeid);
-        } else
-        {
-            throw new EntityNotFoundException("Employee " + employeeid + " Not Found");
-        }
-    }
 }
