@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-import java.net.*;
-import java.io.*;
-import java.nio.channels.*;
 import java.util.Properties;
 
 public class MavenWrapperDownloader
@@ -57,7 +54,7 @@ public class MavenWrapperDownloader
         // If the maven-wrapper.properties exists, read it and check if it contains a custom
         // wrapperUrl parameter.
         File mavenWrapperPropertyFile = new File(baseDirectory,
-                MAVEN_WRAPPER_PROPERTIES_PATH);
+                                                 MAVEN_WRAPPER_PROPERTIES_PATH);
         String url = DEFAULT_DOWNLOAD_URL;
         if (mavenWrapperPropertyFile.exists())
         {
@@ -68,7 +65,7 @@ public class MavenWrapperDownloader
                 Properties mavenWrapperProperties = new Properties();
                 mavenWrapperProperties.load(mavenWrapperPropertyFileInputStream);
                 url = mavenWrapperProperties.getProperty(PROPERTY_NAME_WRAPPER_URL,
-                        url);
+                                                         url);
             } catch (IOException e)
             {
                 System.out.println("- ERROR loading '" + MAVEN_WRAPPER_PROPERTIES_PATH + "'");
@@ -89,7 +86,7 @@ public class MavenWrapperDownloader
         System.out.println("- Downloading from: " + url);
 
         File outputFile = new File(baseDirectory.getAbsolutePath(),
-                MAVEN_WRAPPER_JAR_PATH);
+                                   MAVEN_WRAPPER_JAR_PATH);
         if (!outputFile.getParentFile()
                 .exists())
         {
@@ -105,7 +102,7 @@ public class MavenWrapperDownloader
         try
         {
             downloadFileFromURL(url,
-                    outputFile);
+                                outputFile);
             System.out.println("Done");
             System.exit(0);
         } catch (Throwable e)
@@ -131,7 +128,7 @@ public class MavenWrapperDownloader
                 protected PasswordAuthentication getPasswordAuthentication()
                 {
                     return new PasswordAuthentication(username,
-                            password);
+                                                      password);
                 }
             });
         }
@@ -141,8 +138,8 @@ public class MavenWrapperDownloader
         FileOutputStream fos = new FileOutputStream(destination);
         fos.getChannel()
                 .transferFrom(rbc,
-                        0,
-                        Long.MAX_VALUE);
+                              0,
+                              Long.MAX_VALUE);
         fos.close();
         rbc.close();
     }

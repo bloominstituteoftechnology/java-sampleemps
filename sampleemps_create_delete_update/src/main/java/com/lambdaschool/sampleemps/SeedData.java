@@ -4,8 +4,8 @@ import com.github.javafaker.Faker;
 import com.lambdaschool.sampleemps.models.Email;
 import com.lambdaschool.sampleemps.models.Employee;
 import com.lambdaschool.sampleemps.models.JobTitle;
-import com.lambdaschool.sampleemps.repositories.EmployeeRepository;
 import com.lambdaschool.sampleemps.repositories.JobTitleRepository;
+import com.lambdaschool.sampleemps.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -18,10 +18,11 @@ import java.util.Set;
 
 @Transactional
 @Component
-public class SeedData implements CommandLineRunner
+public class SeedData
+        implements CommandLineRunner
 {
     @Autowired
-    private EmployeeRepository employeerepos;
+    private EmployeeService employeeService;
 
     @Autowired
     private JobTitleRepository jobTitlerepos;
@@ -29,7 +30,8 @@ public class SeedData implements CommandLineRunner
     private Random random = new Random();
 
     @Override
-    public void run(String... args) throws Exception
+    public void run(String... args) throws
+            Exception
     {
         JobTitle jt1 = new JobTitle();
         jt1.setTitle("Big Boss");
@@ -43,39 +45,40 @@ public class SeedData implements CommandLineRunner
         emp1.setName("CINNAMON");
         emp1.setSalary(80000.00);
         emp1.getEmails()
-            .add(new Email("hops@local.com",
-                emp1));
+                .add(new Email("hops@local.com",
+                               emp1));
         emp1.getEmails()
-            .add(new Email("bunny@hoppin.local",
-                emp1));
-        emp1.addJobTitle(jt1);
-        emp1.addJobTitle(jt2);
-        employeerepos.save(emp1);
+                .add(new Email("bunny@hoppin.local",
+                               emp1));
+        emp1.getJobtitles()
+                .add(jt1);
+        emp1.getJobtitles()
+                .add(jt2);
+        employeeService.save(emp1);
 
         Employee emp2 = new Employee();
         emp2.setName("BARNBARN");
         emp2.setSalary(80000.00);
         emp2.getEmails()
-            .add(new Email("barnbarn@local.com",
-                emp2));
-        emp2.addJobTitle(jt1);
-        employeerepos.save(emp2);
+                .add(new Email("barnbarn@local.com",
+                               emp2));
+        emp2.getJobtitles()
+                .add(jt1);
+        employeeService.save(emp2);
 
         Employee emp3 = new Employee();
         emp3.setName("JOHN");
         emp3.setSalary(75000.00);
-        employeerepos.save(emp3);
-
-        // Javafaker code begins!
+        employeeService.save(emp3);
 
         Faker nameFaker = new Faker(new Locale("en-US"));
 
         // this section gets a unique list of names
         Set<String> empNamesSet = new HashSet<>();
-        for (int i = 0; i < 25; i++)
+        for (int i = 0; i < 100; i++)
         {
             empNamesSet.add(nameFaker.name()
-                .fullName());
+                                    .fullName());
         }
 
         for (String empName : empNamesSet)
@@ -84,16 +87,17 @@ public class SeedData implements CommandLineRunner
             employee.setName(empName); // set the name
             employee.setSalary(50000.00 + (100000.00 * random.nextDouble())); // randomly generate salary from 50000 to 150000
 
-            int randomInt = random.nextInt(3); // random number of emails from 0 - 2
+            int randomInt = random.nextInt(10); // random number of emails from 0 - 9
             for (int j = 0; j < randomInt; j++)
             {
                 employee.getEmails()
-                    .add(new Email(nameFaker.internet()
-                        .emailAddress(),
-                        employee));
+                        .add(new Email(nameFaker.internet()
+                                               .emailAddress(),
+                                       employee));
             }
-            employee.addJobTitle(jt1); // just assigning them to the first job title
-            employeerepos.save(employee);
+            employee.getJobtitles()
+                    .add(jt1); // just assigning them to the first job title
+            employeeService.save(employee);
         }
     }
 }

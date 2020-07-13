@@ -5,6 +5,7 @@ import com.lambdaschool.sampleemps.models.Employee;
 import com.lambdaschool.sampleemps.models.JobTitle;
 import com.lambdaschool.sampleemps.repositories.EmployeeRepository;
 import com.lambdaschool.sampleemps.repositories.JobTitleRepository;
+import com.lambdaschool.sampleemps.views.EmpNameCountJobs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,17 +14,15 @@ import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Transactional
 @Service(value = "employeeSerivce") // needed to name this implementation as the service to use
 public class EmployeeServiceImpl
-    implements EmployeeService // notice the Impl for implementing a service
+        implements EmployeeService // notice the Impl for implementing a service
 {
     @Autowired
     private EmployeeRepository employeerepos;
 
     @Autowired
     private JobTitleRepository jtrepos;
-
 
     @Override
     public List<Employee> findAllEmployees()
@@ -34,8 +33,8 @@ public class EmployeeServiceImpl
          * iterate over the iterator set and add each element to an array list.
          */
         employeerepos.findAll()
-            .iterator()
-            .forEachRemaining(list::add);
+                .iterator()
+                .forEachRemaining(list::add);
         return list;
     }
 
@@ -60,25 +59,26 @@ public class EmployeeServiceImpl
         if (employee.getEmployeeid() != 0)
         {
             employeerepos.findById(employee.getEmployeeid())
-                .orElseThrow(() -> new EntityNotFoundException("Employee " + employee.getEmployeeid() + " Not Found"));
+                    .orElseThrow(() -> new EntityNotFoundException("Employee " + employee.getEmployeeid() + " Not Found"));
 
             newEmployee.setEmployeeid(employee.getEmployeeid());
         }
+
         newEmployee.setName(employee.getName());
         newEmployee.setSalary(employee.getSalary());
 
         newEmployee.getJobtitles()
-            .clear();
+                .clear();
         for (JobTitle jt : employee.getJobtitles())
         {
             JobTitle newJT = jtrepos.findById(jt.getJobtitleid())
-                .orElseThrow(() -> new EntityNotFoundException("JobTitle " + jt.getJobtitleid() + " Not Found"));
+                    .orElseThrow(() -> new EntityNotFoundException("JobTitle " + jt.getJobtitleid() + " Not Found"));
 
-            newEmployee.addJobTitle(newJT);
+            newEmployee.getJobtitles().add(newJT);
         }
 
         newEmployee.getEmails()
-            .clear();
+                .clear();
         for (Email e : employee.getEmails())
         {
             Email newEmail = new Email();
@@ -86,20 +86,25 @@ public class EmployeeServiceImpl
             newEmail.setEmployee(newEmployee);
 
             newEmployee.getEmails()
-                .add(newEmail);
+                    .add(newEmail);
         }
-
         return employeerepos.save(newEmployee);
+    }
+
+    @Override
+    public List<EmpNameCountJobs> getEmpNameCountJobs()
+    {
+        return employeerepos.getCountEmpJobs();
     }
 
     @Transactional
     @Override
     public Employee update(
-        Employee employee,
-        long employeeid)
+            Employee employee,
+            long employeeid)
     {
         Employee currentEmployee = employeerepos.findById(employeeid)
-            .orElseThrow(() -> new EntityNotFoundException("Employee " + employeeid + " Not Found"));
+                .orElseThrow(() -> new EntityNotFoundException("Employee " + employeeid + " Not Found"));
 
         if (employee.getName() != null)
         {
@@ -111,25 +116,23 @@ public class EmployeeServiceImpl
             currentEmployee.setSalary(employee.getSalary());
         }
 
-        if (employee.getJobtitles()
-            .size() > 0)
+        if (employee.getJobtitles().size() > 0)
         {
-            currentEmployee.getJobtitles()
-                .clear();
+            currentEmployee.getJobtitles().clear();
             for (JobTitle jt : employee.getJobtitles())
             {
                 JobTitle newJT = jtrepos.findById(jt.getJobtitleid())
-                    .orElseThrow(() -> new EntityNotFoundException("JobTitle " + jt.getJobtitleid() + " Not Found"));
+                        .orElseThrow(() -> new EntityNotFoundException("JobTitle " + jt.getJobtitleid() + " Not Found"));
 
-                currentEmployee.addJobTitle(newJT);
+                currentEmployee.getJobtitles().add(newJT);
             }
         }
 
         if (employee.getEmails()
-            .size() > 0)
+                .size() > 0)
         {
             currentEmployee.getEmails()
-                .clear();
+                    .clear();
             for (Email e : employee.getEmails())
             {
                 Email newEmail = new Email();
@@ -137,25 +140,10 @@ public class EmployeeServiceImpl
                 newEmail.setEmployee(currentEmployee);
 
                 currentEmployee.getEmails()
-                    .add(newEmail);
+                        .add(newEmail);
             }
         }
 
         return employeerepos.save(currentEmployee);
-    }
-
-    @Transactional
-    @Override
-    public void delete(long employeeid)
-    {
-        if (employeerepos.findById(employeeid)
-            .isPresent())
-        {
-            employeerepos.deleteById(employeeid);
-        } else
-        {
-            throw new EntityNotFoundException("Employee " + employeeid + " Not Found");
-        }
-
     }
 }
