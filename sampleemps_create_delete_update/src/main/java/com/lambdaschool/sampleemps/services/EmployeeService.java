@@ -18,4 +18,6 @@ public interface EmployeeService
     List<EmpNameCountJobs> getEmpNameCountJobs();
 
     Employee update(Employee employee, long employeeid);
+
+    void delete(long employeeid);
 }

@@ -9,7 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Objects;
 
 @Entity
 /*
@@ -21,7 +20,7 @@ import java.util.Objects;
  * When you have a compound primary key, you must implement Serializable for Hibernate
  * When you implement Serializable you must implement equals and hash code
  */
-public class EmployeeTitles implements Serializable
+public class EmployeeTitles extends Auditable implements Serializable
 {
     /*
      * 1/2 of the primary key (long) for employeetitles.

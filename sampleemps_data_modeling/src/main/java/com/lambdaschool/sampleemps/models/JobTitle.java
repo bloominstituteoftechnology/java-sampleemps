@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.HashSet;
@@ -15,7 +14,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "jobtitles")
-public class JobTitle
+public class JobTitle extends Auditable
 {
     @Id // The primary key
     @GeneratedValue(strategy = GenerationType.AUTO) // We will let the database decide how to generate it

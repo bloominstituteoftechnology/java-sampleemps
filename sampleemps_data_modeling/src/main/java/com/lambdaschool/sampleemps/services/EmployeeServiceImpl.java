@@ -157,4 +157,18 @@ public class EmployeeServiceImpl
 
         return employeerepos.save(currentEmployee);
     }
+
+    @Transactional
+    @Override
+    public void delete(long employeeid)
+    {
+        if (employeerepos.findById(employeeid)
+                .isPresent())
+        {
+            employeerepos.deleteById(employeeid);
+        } else
+        {
+            throw new EntityNotFoundException("Employee " + employeeid + " Not Found");
+        }
+    }
 }

@@ -1,4 +1,4 @@
-# Java Sample Employee Reading Data
+# Java Sample Employee Create, Delete, Update (CRUD) Data
 
 ## Introduction
 
@@ -152,6 +152,113 @@ Using the provided seed data, the given endpoint will produce the stated output.
         ]
     }
 ]
+```
+
+</details>
+
+<details>
+<summary>POST http://localhost:2019/employees/employee</summary>
+
+DATA
+
+```JSON
+{
+    "jobtitles": [
+        {
+            "jobtitleid": 2,
+            "title": "Wizard"
+        }
+    ],
+    "name": "Mojo",
+    "salary": 100000.00,
+    "emails": [
+        {
+            "email": "mojo@local.com"
+        },
+        {
+            "email": "corgi@home.local"
+        }
+    ]
+}
+```
+
+OUTPUT
+
+```TEXT
+Location Header: http://localhost:2019/employees/employee/573
+STATUS 201 Created
+```
+
+</details>
+
+<details>
+<summary>PUT http://localhost:2019/employees/employee/16</summary>
+
+DATA
+
+```JSON
+{
+    "name": "Corgie",
+    "salary": 80000.00,
+            "jobtitles": [
+            {
+                "jobtitleid": 1,
+                "title": "Big Boss"
+            },
+            {
+                "jobtitleid": 2,
+                "title": "Wizard"
+            }
+        ],
+        "emails": [
+            {
+                "emailid": 4,
+                "email": "hops@local.com"
+            },
+            {
+                "emailid": 5,
+                "email": "bunny@hoppin.local"
+            }
+        ]
+    },
+
+}
+```
+
+OUTPUT
+
+```TEXT
+STATUS 200 OK
+```
+
+</details>
+
+<details>
+<summary>PUT http://localhost:2019/employees/employee/16</summary>
+
+DATA
+
+```JSON
+{
+    "salary": 100000.00
+}
+```
+
+OUTPUT
+
+```TEXT
+STATUS 200 OK
+```
+
+</details>
+
+<details>
+<summary>DELETE http://localhost:2019/employees/employee/16</summary>
+
+OUTPUT
+
+```TEXT
+STATUS 200 OK
 ```
 
 </details>

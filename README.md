@@ -16,7 +16,7 @@ The table layouts are as follows:
 
 Three different applications exist
 
+- sampleemps_model - Includes just the modeling of the data
 - sampleemps_read - Includes only reading data
 - sampleemps_delete_save_update - Finishes the CRUD application by adding Creating, Updating, and Deleting
 - sampleemps_data_modeling - adds auditing fields and more to the CRUD application
-
