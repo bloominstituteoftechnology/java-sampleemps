@@ -12,7 +12,7 @@ The table layouts are as follows:
 - Email has a Many-To-One relationship with Employee. Each employee has many emails. Each email has only one employee.
 - Jobtitles has a Many-To-Many relationship with Employee
 
-![Image of Database Layout](../sampleemps-db.png)
+![Image of Database Layout](sampleemps-audit-db.png)
 
 Using the provided seed data, the given endpoint will produce the stated output. Expand each endpoint to see it's correct output.
 
@@ -155,3 +155,5 @@ Using the provided seed data, the given endpoint will produce the stated output.
 ```
 
 </details>
+
+[Sample Swagger Documentation](https://drive.google.com/file/d/1EijscrIhpv6lbnSbLXcaH7NeLFCEpI2l/view)
