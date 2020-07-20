@@ -10,7 +10,8 @@ import java.util.Optional;
  * For now, a default name will be used
  */
 @Component
-public class UserAuditing implements AuditorAware<String>
+public class UserAuditing
+        implements AuditorAware<String>
 {
     /**
      * The current user

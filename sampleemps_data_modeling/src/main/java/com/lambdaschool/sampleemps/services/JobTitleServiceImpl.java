@@ -12,7 +12,8 @@ import javax.persistence.EntityNotFoundException;
 
 @Transactional
 @Service(value = "jobtitleSerivce") // needed to name this implementation as the service to use
-public class JobTitleServiceImpl implements JobTitleService
+public class JobTitleServiceImpl
+        implements JobTitleService
 {
     @Autowired
     private EmployeeRepository employeerepos;
@@ -28,7 +29,7 @@ public class JobTitleServiceImpl implements JobTitleService
     {
         if (jt.getTitle() == null)
         {
-            throw new EntityNotFoundException("No Tile found to update!");
+            throw new EntityNotFoundException("No Title found to update!");
         }
 
         if (jt.getEmpnames()

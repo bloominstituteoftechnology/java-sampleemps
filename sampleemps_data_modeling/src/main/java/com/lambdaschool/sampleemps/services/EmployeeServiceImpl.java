@@ -11,22 +11,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Transactional
 @Service(value = "employeeSerivce") // needed to name this implementation as the service to use
 public class EmployeeServiceImpl
-    implements EmployeeService // notice the Impl for implementing a service
+        implements EmployeeService // notice the Impl for implementing a service
 {
     @Autowired
     private EmployeeRepository employeerepos;
 
     @Autowired
     private JobTitleRepository jtrepos;
-
 
     @Override
     public List<Employee> findAllEmployees()
@@ -37,8 +34,8 @@ public class EmployeeServiceImpl
          * iterate over the iterator set and add each element to an array list.
          */
         employeerepos.findAll()
-            .iterator()
-            .forEachRemaining(list::add);
+                .iterator()
+                .forEachRemaining(list::add);
         return list;
     }
 
@@ -62,44 +59,33 @@ public class EmployeeServiceImpl
 
         if (employee.getEmployeeid() != 0)
         {
-            Employee oldEmp = employeerepos.findById(employee.getEmployeeid())
-                .orElseThrow(() -> new EntityNotFoundException("Employee " + employee.getEmployeeid() + " Not Found"));
+            employeerepos.findById(employee.getEmployeeid())
+                    .orElseThrow(() -> new EntityNotFoundException("Employee " + employee.getEmployeeid() + " Not Found"));
 
-            // delete the job titles for the old employee we are replacing
-            for (EmployeeTitles et : oldEmp.getJobnames())
-            {
-                System.out.println("~~~~~~~~~~ Will be a Custom Query ~~~~~~~~~~");
-            }
             newEmployee.setEmployeeid(employee.getEmployeeid());
         }
+
         newEmployee.setName(employee.getName());
         newEmployee.setSalary(employee.getSalary());
 
+        // changing this code to adjust to the new model
         newEmployee.getJobnames()
-            .clear();
-        if (employee.getEmployeeid() == 0)
+                .clear();
+        for (EmployeeTitles jt : employee.getJobnames())
         {
-            for (EmployeeTitles et : employee.getJobnames())
-            {
-                JobTitle newET = jtrepos.findById(et.getJobname()
-                    .getJobtitleid())
-                    .orElseThrow(() -> new EntityNotFoundException("JobTitle " + et.getJobname()
-                        .getJobtitleid() + " Not Found"));
+            JobTitle newJT = jtrepos.findById(jt.getJobname()
+                                                      .getJobtitleid())
+                    .orElseThrow(() -> new EntityNotFoundException("JobTitle " + jt.getJobname()
+                            .getJobtitleid() + " Not Found"));
 
-                newEmployee.addJobTitle(newET,
-                    et.getManager());
-            }
-        } else
-        {
-            // add the new job titles for the employee we are replacing!
-            for (EmployeeTitles et : employee.getJobnames())
-            {
-                System.out.println("~~~~~~~~~~ Will be a Custom Query ~~~~~~~~~~");
-            }
+            // yes I just hard coded a manager!
+            newEmployee.getJobnames()
+                    .add(new EmployeeTitles(newEmployee, newJT, "Stumps"));
         }
+        // changing the above code to adjust to the new model
 
         newEmployee.getEmails()
-            .clear();
+                .clear();
         for (Email e : employee.getEmails())
         {
             Email newEmail = new Email();
@@ -107,20 +93,25 @@ public class EmployeeServiceImpl
             newEmail.setEmployee(newEmployee);
 
             newEmployee.getEmails()
-                .add(newEmail);
+                    .add(newEmail);
         }
-
         return employeerepos.save(newEmployee);
+    }
+
+    @Override
+    public List<EmpNameCountJobs> getEmpNameCountJobs()
+    {
+        return employeerepos.getCountEmpJobs();
     }
 
     @Transactional
     @Override
     public Employee update(
-        Employee employee,
-        long employeeid)
+            Employee employee,
+            long employeeid)
     {
         Employee currentEmployee = employeerepos.findById(employeeid)
-            .orElseThrow(() -> new EntityNotFoundException("Employee " + employeeid + " Not Found"));
+                .orElseThrow(() -> new EntityNotFoundException("Employee " + employeeid + " Not Found"));
 
         if (employee.getName() != null)
         {
@@ -132,27 +123,27 @@ public class EmployeeServiceImpl
             currentEmployee.setSalary(employee.getSalary());
         }
 
-        if (employee.getJobnames()
-            .size() > 0)
+        // changing this code to adjust to the new model
+        currentEmployee.getJobnames()
+                .clear();
+        for (EmployeeTitles jt : employee.getJobnames())
         {
-            // delete the roles for the old employee we are replacing
-            for (EmployeeTitles et : currentEmployee.getJobnames())
-            {
-                System.out.println("~~~~~~~~~~ Will be a Custom Query ~~~~~~~~~~");
-            }
+            JobTitle newJT = jtrepos.findById(jt.getJobname()
+                                                      .getJobtitleid())
+                    .orElseThrow(() -> new EntityNotFoundException("JobTitle " + jt.getJobname()
+                            .getJobtitleid() + " Not Found"));
 
-            // add the roles for the new employee we are replacing with
-            for (EmployeeTitles et : employee.getJobnames())
-            {
-                System.out.println("~~~~~~~~~~ Will be a Custom Query ~~~~~~~~~~");
-            }
+            // yes I just hard coded a manager!
+            currentEmployee.getJobnames()
+                    .add(new EmployeeTitles(currentEmployee, newJT, "Stumps"));
         }
+        // changing the above code to adjust to the new model
 
         if (employee.getEmails()
-            .size() > 0)
+                .size() > 0)
         {
             currentEmployee.getEmails()
-                .clear();
+                    .clear();
             for (Email e : employee.getEmails())
             {
                 Email newEmail = new Email();
@@ -160,81 +151,10 @@ public class EmployeeServiceImpl
                 newEmail.setEmployee(currentEmployee);
 
                 currentEmployee.getEmails()
-                    .add(newEmail);
+                        .add(newEmail);
             }
         }
 
         return employeerepos.save(currentEmployee);
-    }
-
-    @Transactional
-    @Override
-    public void delete(long employeeid)
-    {
-        if (employeerepos.findById(employeeid)
-            .isPresent())
-        {
-            employeerepos.deleteById(employeeid);
-        } else
-        {
-            throw new EntityNotFoundException("Employee " + employeeid + " Not Found");
-        }
-    }
-
-    @Override
-    public List<EmpNameCountJobs> getEmpNameCountJobs()
-    {
-        return employeerepos.getCountEmpJobs();
-    }
-
-    @Transactional
-    @Override
-    public void deleteEmpJobTitle(
-        long employeeid,
-        long jobtitleid)
-    {
-        employeerepos.findById(employeeid)
-            .orElseThrow(() -> new EntityNotFoundException("Employee id " + employeeid + " not found!"));
-
-        jtrepos.findById(jobtitleid)
-            .orElseThrow(() -> new EntityNotFoundException("Job Title id " + jobtitleid + " not found!"));
-
-        if (employeerepos.checkEmpJobTitleCombo(employeeid,
-            jobtitleid)
-            .getCount() > 0)
-        {
-            employeerepos.deleteEmployeeJobTitleCombo(employeeid,
-                jobtitleid);
-        } else
-        {
-            throw new EntityNotFoundException("Employee and Job Title Combination Does Not Exists");
-        }
-    }
-
-    @Transactional
-    @Override
-    public void addEmpJobTitle(
-        long employeeid,
-        long jobtitleid,
-        String manager)
-    {
-        employeerepos.findById(employeeid)
-            .orElseThrow(() -> new EntityNotFoundException("Employee id " + employeeid + " not found!"));
-
-        jtrepos.findById(jobtitleid)
-            .orElseThrow(() -> new EntityNotFoundException("Job Title id " + jobtitleid + " not found!"));
-
-        if (employeerepos.checkEmpJobTitleCombo(employeeid,
-            jobtitleid)
-            .getCount() <= 0)
-        {
-            employeerepos.insertEmployeeJobTitleCombo("SYSTEM",
-                employeeid,
-                jobtitleid,
-                manager);
-        } else
-        {
-            throw new EntityExistsException("Employee and Job Title Combination Exists");
-        }
     }
 }

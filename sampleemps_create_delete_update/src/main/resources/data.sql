@@ -30,7 +30,9 @@ INSERT INTO EMPLOYEETITLES (EMPLOYEEID, JOBTITLEID)
            (2, 2);
 
 /*
-Must tell hibernate of the id numbers already used.
-The number after with must be greater that the highest number id assigned.
+We must tell hibernate the ids that have already been used.
+The number must be larger than the last used id.
+15 > 3 so we are good!
  */
+
 alter sequence hibernate_sequence restart with 15;

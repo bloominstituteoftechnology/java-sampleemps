@@ -2,24 +2,29 @@ package com.lambdaschool.sampleemps.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "emails")
-public class Email extends Auditable
+public class Email
 {
     @Id // The primary key
     @GeneratedValue(strategy = GenerationType.AUTO) // We will let the database decide how to generate it
     private long emailid; // long so we can have many rows
 
-    @Column(nullable = false)
     private String email;
 
     @ManyToOne
     @JoinColumn(name = "employeeid",
-        nullable = false)
-    @JsonIgnoreProperties(value = "emails",
-        allowSetters = true)
+            nullable = false)
+    // we want to ignore, not display, the emails collection from Employee
+    @JsonIgnoreProperties("emails")
     private Employee employee;
 
     public Email()
@@ -27,9 +32,8 @@ public class Email extends Auditable
         // the default constructor is required by the JPA
     }
 
-    public Email(
-        String email,
-        Employee employee)
+    public Email(String email,
+                 Employee employee)
     {
         this.email = email;
         this.employee = employee;
