@@ -76,7 +76,7 @@ public class SeedData
 
         // this section gets a unique list of names
         Set<String> empNamesSet = new HashSet<>();
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 3; i++)
         {
             empNamesSet.add(nameFaker.name()
                                     .fullName());
